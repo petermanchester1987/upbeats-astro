@@ -1,15 +1,24 @@
 ---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
   eyebrow: string;
   title: string;
   sub: string;
-  image: string;
+  // A locally-imported image (`import x from '../assets/images/x.jpg'`),
+  // not a plain URL string — that's what lets getImage() below resize it
+  // and convert it to webp instead of shipping the original file as-is.
+  // CSS background-image can't use the <Image /> component directly,
+  // hence going via getImage() to get an optimized URL to interpolate.
+  image: ImageMetadata;
 }
 const { eyebrow, title, sub, image } = Astro.props;
+const optimizedImage = await getImage({ src: image, width: 1600, format: 'webp', quality: 75 });
 ---
 
 <section class="booking-hero">
-  <div class="booking-hero__media" style={`background-image:url(${image})`}></div>
+  <div class="booking-hero__media" style={`background-image:url(${optimizedImage.src})`}></div>
   <div class="booking-hero__scrim"></div>
   <div class="wrap booking-hero__content">
     <slot name="breadcrumbs" />

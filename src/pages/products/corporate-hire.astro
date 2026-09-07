@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import BookingHero from '../../components/BookingHero.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import heroImage from '../../assets/images/The-Upbeats-Party-Band-Corporate-Hire.jpeg';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -24,7 +25,7 @@ const serviceSchema = {
     eyebrow="Corporate Hire"
     title="A sure fire hit for any corporate event."
     sub="Award ceremonies, client dinners, product launches and office parties — professional, reliable, and always ready to read the room."
-    image="/src/assets/images/The-Upbeats-Party-Band-Corporate-Hire.jpeg"
+    image={heroImage}
   >
     <Breadcrumbs
       slot="breadcrumbs"

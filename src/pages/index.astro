@@ -7,8 +7,14 @@ import StatsCounter from '../components/StatsCounter.astro';
 import SocialFollow from '../components/SocialFollow.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import allSongs from '../data/songs.json';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import ventureImage from '../assets/images/the-upbeats-on-the-venture.jpeg';
+import heroImage from '../assets/images/hero-party-band.jpg';
+
+// CSS background-image can't use <Image />, so getImage() is used to get
+// an optimized (resized + webp) URL to interpolate into the inline style
+// below instead — same approach as BookingHero.astro.
+const optimizedHero = await getImage({ src: heroImage, width: 1920, format: 'webp', quality: 75 });
 
 // A hand-picked sample of crowd-pleasers for the marquee, pulled from the
 // same songs.json that powers the searchable repertoire page — one source
@@ -47,7 +53,7 @@ const stats = [
 
 <Layout title="Party Band | The Upbeats Music Duo" description="An energetic and established live party duo, available for weddings, corporate parties, cruises and private hire across the UK.">
   <section class="hero">
-    <div class="hero__media" style="background-image:url('/src/assets/images/hero-party-band.jpg')"></div>
+    <div class="hero__media" style={`background-image:url('${optimizedHero.src}')`}></div>
     <div class="hero__scrim"></div>
     <div class="hero__second_scrim"></div>
     <div class="wrap">

@@ -76,6 +76,11 @@
     "tags": []
   },
   {
+    "title": "Let's Stay Together",
+    "artist": "Al Green",
+    "tags": []
+  },
+  {
     "title": "Black Velvet",
     "artist": "Alannah Myles",
     "tags": [
@@ -83,6 +88,11 @@
       "Country",
       "Soft Rock"
     ]
+  },
+  {
+    "title": "Back To Black",
+    "artist": "Amy Winehouse",
+    "tags": []
   },
   {
     "title": "Rehab",
@@ -361,6 +371,11 @@
     "tags": []
   },
   {
+    "title": "Green Onions",
+    "artist": "Booker T and the MG's",
+    "tags": []
+  },
+  {
     "title": "More Than a Feeling",
     "artist": "Boston",
     "tags": []
@@ -566,6 +581,11 @@
     "tags": []
   },
   {
+    "title": "Clocks",
+    "artist": "Coldplay",
+    "tags": []
+  },
+  {
     "title": "Yellow",
     "artist": "Coldplay",
     "tags": []
@@ -741,11 +761,6 @@
     "tags": []
   },
   {
-    "title": "Let Me Love You",
-    "artist": "Dj Snake",
-    "tags": []
-  },
-  {
     "title": "Cake By The Ocean",
     "artist": "Dnce",
     "tags": []
@@ -768,6 +783,11 @@
   {
     "title": "Hot Stuff",
     "artist": "Donna Summer",
+    "tags": []
+  },
+    {
+    "title": "April Sun In Cuba",
+    "artist": "Dragon",
     "tags": []
   },
   {
@@ -826,18 +846,8 @@
     "tags": []
   },
   {
-    "title": "Sing",
-    "artist": "Ed Sheeran & Pharrell Williams",
-    "tags": []
-  },
-  {
     "title": "La Vie En Rose",
     "artist": "Edith Piaf",
-    "tags": []
-  },
-  {
-    "title": "Home",
-    "artist": "Edward Sharpe And The Magnetic Zeros",
     "tags": []
   },
   {
@@ -876,11 +886,6 @@
     "tags": []
   },
   {
-    "title": "Suavemente",
-    "artist": "Elvis Crespo",
-    "tags": []
-  },
-  {
     "title": "A Little Less Conversation",
     "artist": "Elvis Presley",
     "tags": []
@@ -903,6 +908,11 @@
   {
     "title": "The Last Waltz",
     "artist": "Engelbert Humperdinck",
+    "tags": []
+  },
+    {
+    "title": "A Little Respect",
+    "artist": "Erasure",
     "tags": []
   },
   {
@@ -1036,12 +1046,12 @@
     "tags": []
   },
   {
-    "title": "It Had To Be You",
+    "title": "Let It Snow Let It Snow Let It Snow",
     "artist": "Frank Sinatra",
     "tags": []
   },
-  {
-    "title": "Let It Snow Let It Snow Let It Snow",
+    {
+    "title": "My Way",
     "artist": "Frank Sinatra",
     "tags": []
   },
@@ -1050,8 +1060,8 @@
     "artist": "Frank Sinatra",
     "tags": []
   },
-  {
-    "title": "One For My Baby",
+    {
+    "title": "That's Life",
     "artist": "Frank Sinatra",
     "tags": []
   },
@@ -1270,7 +1280,7 @@
   },
   {
     "title": "James Bond Theme",
-    "artist": "James Bond",
+    "artist": "Monty Norman",
     "tags": []
   },
   {
@@ -1449,6 +1459,11 @@
     "tags": []
   },
   {
+    "title": "You Raise Me Up",
+    "artist": "Josh Groban",
+    "tags": []
+  },
+  {
     "title": "Don't Stop Believing",
     "artist": "Journey",
     "tags": [
@@ -1548,6 +1563,16 @@
     "tags": []
   },
   {
+    "title": "Hallelujah",
+    "artist": "Leonard Cohen",
+    "tags": []
+  },
+  {
+    "title": "Dance Me to the End of Love",
+    "artist": "Leonard Cohen",
+    "tags": []
+  },
+  {
     "title": "Empty Chairs At Empty Tables",
     "artist": "Les Misérables",
     "tags": []
@@ -1585,11 +1610,6 @@
   {
     "title": "Shout Out To My Ex",
     "artist": "Little Mix",
-    "tags": []
-  },
-  {
-    "title": "Dentist!",
-    "artist": "Little Shop of Horrors",
     "tags": []
   },
   {
@@ -1753,6 +1773,16 @@
     "tags": []
   },
   {
+    "title": "All About The Bass",
+    "artist": "Meghan Trainor",
+    "tags": []
+  },
+  {
+    "title": "Dear Future Husband",
+    "artist": "Meghan Trainor",
+    "tags": []
+  },
+  {
     "title": "Made You Look",
     "artist": "Meghan Trainor",
     "tags": []
@@ -1912,6 +1942,11 @@
     "artist": "Norah Jones",
     "tags": []
   },
+    {
+    "title": "Sunrise",
+    "artist": "Norah Jones",
+    "tags": []
+  },
   {
     "title": "Turn Me On",
     "artist": "Norah Jones",
@@ -2037,6 +2072,11 @@
     "artist": "Pulp",
     "tags": []
   },
+    {
+    "title": "Another One Bites The Dust",
+    "artist": "Queen",
+    "tags": []
+  },
   {
     "title": "Bohemian Rhapsody",
     "artist": "Queen",
@@ -2048,13 +2088,38 @@
     "tags": []
   },
   {
-    "title": "Fat Bottomed Girls",
+    "title": "Don't Stop Me Now",
+    "artist": "Queen",
+    "tags": []
+  },
+    {
+    "title": "One Vision",
+    "artist": "Queen",
+    "tags": []
+  },
+  {
+    "title": "Radio Ga Ga",
+    "artist": "Queen",
+    "tags": []
+  },
+  {
+    "title": "I Want To Break Free",
     "artist": "Queen",
     "tags": []
   },
   {
     "title": "Under Pressure",
     "artist": "Queen & David Bowie",
+    "tags": []
+  },
+  {
+    "title": "We Are The Champions",
+    "artist": "Queen",
+    "tags": []
+  },
+    {
+    "title": "We Will Rock You",
+    "artist": "Queen",
     "tags": []
   },
   {
@@ -2093,8 +2158,13 @@
     "tags": []
   },
   {
-    "title": "September",
+    "title": "Livin' La Vida Loca",
     "artist": "Ricky Martin",
+    "tags": []
+  },
+  {
+    "title": "Angels",
+    "artist": "Robbie Williams",
     "tags": []
   },
   {
@@ -2153,6 +2223,11 @@
     "tags": []
   },
   {
+    "title": "Cupid",
+    "artist": "Sam Cooke",
+    "tags": []
+  },
+  {
     "title": "Twistin' The Night Away",
     "artist": "Sam Cooke",
     "tags": []
@@ -2208,6 +2283,11 @@
     "tags": []
   },
   {
+    "title": "Mrs. Robinson",
+    "artist": "Simon And Garfunkel",
+    "tags": []
+  },
+  {
     "title": "The 59th Street Bridge Song (Feelin' Groovy)",
     "artist": "Simon And Garfunkel",
     "tags": []
@@ -2215,11 +2295,6 @@
   {
     "title": "The Boxer",
     "artist": "Simon And Garfunkel",
-    "tags": []
-  },
-  {
-    "title": "Baby Got Back",
-    "artist": "Sir Mix A Lot",
     "tags": []
   },
   {
@@ -2308,7 +2383,12 @@
     "tags": []
   },
   {
-    "title": "Happy Birthday",
+    "title": "Isn't She Lovely",
+    "artist": "Stevie Wonder",
+    "tags": []
+  },
+  {
+    "title": "Superstition",
     "artist": "Stevie Wonder",
     "tags": []
   },
@@ -2511,6 +2591,11 @@
     "tags": []
   },
   {
+    "title": "Something",
+    "artist": "The Beatles",
+    "tags": []
+  },
+  {
     "title": "Ticket To Ride",
     "artist": "The Beatles",
     "tags": []
@@ -2689,6 +2774,11 @@
   },
   {
     "title": "Baby, Now That I've Found You",
+    "artist": "The Foundations",
+    "tags": []
+  },
+    {
+    "title": "Build Me Up Buttercup",
     "artist": "The Foundations",
     "tags": []
   },
@@ -3079,6 +3169,11 @@
     "tags": []
   },
   {
+    "title": "Brown Eyed Girl",
+    "artist": "Van Morrison",
+    "tags": []
+  },
+  {
     "title": "Y.M.C.A",
     "artist": "Village People",
     "tags": []
@@ -3141,6 +3236,11 @@
   {
     "title": "Hold On",
     "artist": "Wilson Phillips",
+    "tags": []
+  },
+    {
+    "title": "In The Midnight Hour",
+    "artist": "Wilson Pickett",
     "tags": []
   },
   {

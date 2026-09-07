@@ -4,6 +4,7 @@ import BookingHero from '../../components/BookingHero.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import YouTube from '../../components/YouTube.astro';
 import SocialFollow from '../../components/SocialFollow.astro';
+import heroImage from '../../assets/images/the-upbeats-party-image.jpg';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -26,8 +27,8 @@ const serviceSchema = {
     eyebrow="Parties"
     title="Get your next party rocking."
     sub="Birthdays, anniversaries, garden parties or a good old-fashioned knees-up — we bring the energy and the songbook."
-    image="/src/assets/images/the-upbeats-party-image.jpg"
-  >/
+    image={heroImage}
+  >
     <Breadcrumbs
       slot="breadcrumbs"
       items={[

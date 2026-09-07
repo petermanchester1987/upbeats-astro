@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import BookingHero from '../../components/BookingHero.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import YouTube from '../../components/YouTube.astro';
+import heroImage from '../../assets/images/the-upbeats-party-promo-christmas-party.jpeg';
 
 
 const serviceSchema = {
@@ -26,7 +27,7 @@ const serviceSchema = {
     eyebrow="Christmas"
     title="Get your Christmas party swinging."
     sub="Festive favourites mixed in with all the usual party classics — book early, December fills up fast."
-    image="/src/assets/images/the-upbeats-party-promo-christmas-party.jpeg"
+    image={heroImage}
   >
     <Breadcrumbs
       slot="breadcrumbs"

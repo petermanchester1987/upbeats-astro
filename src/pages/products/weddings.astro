@@ -4,6 +4,7 @@ import BookingHero from '../../components/BookingHero.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import YouTube from '../../components/YouTube.astro';
 import SocialFollow from '../../components/SocialFollow.astro';
+import heroImage from '../../assets/images/the-upbeats-duo-wedding-band.jpeg';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -26,7 +27,7 @@ const serviceSchema = {
     eyebrow="Weddings"
     title="Get hitched without a hitch."
     sub="From your ceremony through to the very last dance, we'll keep the room moving with live music tailored to you."
-    image="/src/assets/images/the-upbeats-duo-wedding-band.jpeg"
+    image={heroImage}
   >
     <Breadcrumbs
       slot="breadcrumbs"

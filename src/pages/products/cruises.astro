@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import BookingHero from '../../components/BookingHero.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import heroImage from '../../assets/images/the-upbeats-duo-cruise-band.jpeg';
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -24,7 +25,7 @@ const serviceSchema = {
     eyebrow="Cruises"
     title="Years of experience at sea."
     sub="We've spent years playing aboard cruise ships around the world, from intimate lounge sets to full deck parties."
-    image="/src/assets/images/the-upbeats-duo-cruise-band.jpeg"
+    image={heroImage}
   >
     <Breadcrumbs
       slot="breadcrumbs"
