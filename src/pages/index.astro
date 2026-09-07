@@ -10,6 +10,10 @@ import allSongs from '../data/songs.json';
 import { Image, getImage } from 'astro:assets';
 import ventureImage from '../assets/images/the-upbeats-on-the-venture.jpeg';
 import heroImage from '../assets/images/hero-party-band.jpg';
+import weddingsImage from '../assets/images/the-upbeats-duo-wedding-band.jpeg';
+import corporateHireImage from '../assets/images/The-Upbeats-Party-Band-Corporate-Hire.jpeg';
+import cruisesImage from '../assets/images/the-upbeats-duo-cruise-band.jpeg';
+import partiesImage from '../assets/images/the-upbeats-party-image.jpg';
 
 // CSS background-image can't use <Image />, so getImage() is used to get
 // an optimized (resized + webp) URL to interpolate into the inline style
@@ -27,10 +31,10 @@ const featured = [
 const setlist = featured.filter((title) => allSongs.some((s) => s.title === title));
 
 const services = [
-  { href: '/products/weddings', title: 'Weddings', blurb: 'The Upbeats duo are sure to help you get hitched without a hitch!', image: 'https://images.ctfassets.net/q9mnwtzln9su/5fSjTCB9So8h4HrANpuNiK/611cdbb4763b86529c2ff4533cb4eae5/the-upbeats-duo-wedding-band.jpeg?w=800&h=600&fl=progressive&q=60&fm=jpg' },
-  { href: '/products/corporate-hire', title: 'Corporate Hire', blurb: 'The Upbeats are a sure fire hit for any corporate party!', image: 'https://images.ctfassets.net/q9mnwtzln9su/6a9nHDW4lfQljBxoPG04ZZ/e74a98c5c1d949673e48508872fddf32/The_Upbeats_Party_Band_Corporate_Hire.jpeg?w=800&h=600&fl=progressive&q=60&fm=jpg' },
-  { href: '/products/cruises', title: 'Cruises', blurb: 'The Upbeats Duo have 6 years experience working onboard cruise ships!', image: 'https://images.ctfassets.net/q9mnwtzln9su/3ObXQDeE1O8AK75YCoYMcs/e0f9f9f1d30abdadea57aaa49c0d03d0/the-upbeats-duo-on-deck.png?w=800&h=600&q=60&fm=png' },
-  { href: '/products/parties', title: 'Parties', blurb: 'The Upbeats Duo are sure to get your next party rocking!', image: 'https://images.ctfassets.net/q9mnwtzln9su/714OG60BWGGTHCB4HHQ1O9/779061be5f1308056aa60a4adadebba7/The_Upbeats_Party_Promo_pic_5_copy.jpg?w=800&h=600&fl=progressive&q=60&fm=jpg' },
+  { href: '/products/weddings', title: 'Weddings', blurb: 'The Upbeats duo are sure to help you get hitched without a hitch!', image: weddingsImage },
+  { href: '/products/corporate-hire', title: 'Corporate Hire', blurb: 'The Upbeats are a sure fire hit for any corporate party!', image: corporateHireImage },
+  { href: '/products/cruises', title: 'Cruises', blurb: 'The Upbeats Duo have 6 years experience working onboard cruise ships!', image: cruisesImage },
+  { href: '/products/parties', title: 'Parties', blurb: 'The Upbeats Duo are sure to get your next party rocking!', image: partiesImage },
 ];
 
 // Add as many reviews here as you like — they now scroll in a carousel

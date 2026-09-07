@@ -1,15 +1,22 @@
 ---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
   href: string;
   title: string;
   blurb: string;
-  image: string;
+  // A locally-imported image, not a plain URL string — same reasoning as
+  // BookingHero.astro: CSS background-image can't use <Image /> directly,
+  // so getImage() below produces an optimized, resized webp URL instead.
+  image: ImageMetadata;
 }
 const { href, title, blurb, image } = Astro.props;
+const optimizedImage = await getImage({ src: image, width: 800, format: 'webp', quality: 75 });
 ---
 
 <a class="service-card" href={href}>
-  <div class="service-card__image" style={`background-image:url(${image})`}></div>
+  <div class="service-card__image" style={`background-image:url(${optimizedImage.src})`}></div>
   <div class="service-card__body">
     <h3>{title}</h3>
     <p>{blurb}</p>
