@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RepertoireBrowser from '../components/RepertoireBrowser.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SocialFollow from '../components/SocialFollow.astro';
+import songs from '../data/songs.json';
+import artists from '../data/artists.json';
+---
+
+<Layout
+  title="Party Band Duo - Songs | The Upbeats Music Duo"
+  description="Browse The Upbeats Duo's full repertoire, searchable by song or artist, spanning the 1950s to today's chart hits."
+  image="/open-graph/repertoire.png"
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Repertoire', href: '/repertoire/' }]} />
+      <p class="eyebrow">{songs.length}+ songs and counting</p>
+      <h1>The Upbeats Duo &mdash; Repertoire.</h1>
+      <p class="page-hero__sub">
+        Our repertoire is pretty huge, spanning {artists.length}+ artists
+        &mdash; that's what you get having played for as long as we have.
+        Search by song title or artist below, or pick an artist from the list.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <RepertoireBrowser />
+    </div>
+  </section>
+
+  <section class="listen">
+    <div class="wrap">
+      <p class="eyebrow">Hear a taste</p>
+      <h2>Listen to us play.</h2>
+      <div class="card listen__card">
+        <iframe
+          title="The Upbeats Duo on SoundCloud"
+          width="100%"
+          height="300"
+          scrolling="no"
+          frameborder="no"
+          allow="autoplay"
+          loading="lazy"
+          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-996705933&color=%23f4b942&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap social-grid">
+      <SocialFollow
+        platform="instagram"
+        handle="@theupbeatsduo"
+        href="https://www.instagram.com/theupbeatsduo/"
+        sub="Behind-the-scenes clips, gig highlights and the latest from us."
+      />
+      <SocialFollow
+        platform="youtube"
+        handle="The Upbeats Duo"
+        href="https://www.youtube.com/@theupbeatsduo"
+        sub="Live promo videos and full sets from real weddings and parties."
+      />
+    </div>
+  </section>
+
+  <section class="cta section-tight">
+    <div class="wrap cta__inner">
+      <div>
+        <h2>Can't see your favourite?</h2>
+        <p>We're always adding to the setlist &mdash; get in touch with song requests.</p>
+      </div>
+      <a class="btn btn-solid" href="/contact/">Contact about song requests</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { padding-top: 4rem; padding-bottom: 2rem; }
+  .page-hero__sub { color: var(--lavender); max-width: 55ch; font-size: 1.1rem; }
+  .listen__card iframe { border-radius: 10px; }
+  .social-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr 1fr; }
+  .cta__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+  }
+  @media (max-width: 800px) {
+    .social-grid { grid-template-columns: 1fr; }
+  }
+</style>

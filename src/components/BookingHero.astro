@@ -1,0 +1,29 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  sub: string;
+  image: string;
+}
+const { eyebrow, title, sub, image } = Astro.props;
+---
+
+<section class="booking-hero">
+  <div class="booking-hero__media" style={`background-image:url(${image})`}></div>
+  <div class="booking-hero__scrim"></div>
+  <div class="wrap booking-hero__content">
+    <slot name="breadcrumbs" />
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p class="booking-hero__sub">{sub}</p>
+    <a class="btn btn-solid" href="/contact/">Check availability</a>
+  </div>
+</section>
+
+<style>
+  .booking-hero { position: relative; min-height: 56vh; display: flex; align-items: flex-end; overflow: hidden; }
+  .booking-hero__media { position: absolute; inset: 0; background-size: cover; background-position: center; }
+  .booking-hero__scrim { position: absolute; inset: 0; background: linear-gradient(0deg, var(--ink) 10%, rgba(23,15,43,0.55) 60%, rgba(23,15,43,0.25) 100%); }
+  .booking-hero__content { position: relative; padding-bottom: 3rem; max-width: 42rem; }
+  .booking-hero__sub { color: var(--lavender); font-size: 1.1rem; max-width: 42ch; }
+</style>

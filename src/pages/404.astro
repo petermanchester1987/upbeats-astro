@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Page Not Found | The Upbeats Music Duo" description="This page couldn't be found.">
+  <section class="not-found">
+    <div class="wrap">
+      <p class="eyebrow">Wrong note</p>
+      <h1>404 &mdash; Page not found.</h1>
+      <p>Looks like this page has left the building. Try heading back home, or browse our booking options below.</p>
+      <div class="not-found__actions">
+        <a class="btn btn-solid" href="/">Back to homepage</a>
+        <a class="btn btn-outline" href="/products/">See bookings</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .not-found { padding: 6rem 0; text-align: center; }
+  .not-found p { color: var(--lavender); max-width: 40ch; margin: 0 auto 1.5rem; }
+  .not-found__actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+</style>

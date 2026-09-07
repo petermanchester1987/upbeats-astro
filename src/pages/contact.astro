@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SocialFollow from '../components/SocialFollow.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+
+// This form uses Netlify Forms — no third-party form service, no API keys.
+// It works because Astro renders this page to plain static HTML at build
+// time, and Netlify's build bot scans that HTML for a <form data-netlify>
+// tag to register it automatically. This ONLY works if the site is hosted
+// on Netlify. See README.md → "Contact form" for the Cloudflare Pages
+// alternative if you host elsewhere.
+---
+
+<Layout
+  title="Contact | The Upbeats Music Duo"
+  description="Get in touch with The Upbeats Duo to check availability and book us for your wedding, party, corporate event or cruise."
+  image="/open-graph/contact.png"
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Contact', href: '/contact/' }]} />
+      <p class="eyebrow">Let's talk</p>
+      <h1>Book us for your event.</h1>
+      <p class="page-hero__sub">Tell us about your date, venue and what kind of event it is, and we'll get back to you as soon as we can.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap contact-grid">
+      <form
+        class="card contact-form"
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/contact/thank-you/"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="visually-hidden">
+          <label>
+            Don't fill this out if you're human:
+            <input name="bot-field" tabindex="-1" autocomplete="off" />
+          </label>
+        </p>
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required />
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+
+        <div class="field">
+          <label for="event-type">Event type</label>
+          <select id="event-type" name="event_type">
+            <option value="wedding">Wedding</option>
+            <option value="corporate">Corporate hire</option>
+            <option value="cruise">Cruise</option>
+            <option value="party">Party</option>
+            <option value="christmas">Christmas party</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="event-date">Event date</label>
+          <input id="event-date" name="event_date" type="date" />
+        </div>
+
+        <div class="field">
+          <label for="message">Tell us about your event</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-solid">Send enquiry</button>
+      </form>
+
+      <aside class="contact-side">
+        <div class="card">
+          <h3>Prefer email?</h3>
+          <p><a href="mailto:theupbeatsmusicduo@gmail.com">theupbeatsmusicduo@gmail.com</a></p>
+        </div>
+        <div class="card">
+          <h3>Find us online</h3>
+          <ul>
+            <li><a href="https://www.instagram.com/theupbeatsduo/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://soundcloud.com/user-996705933" target="_blank" rel="noopener noreferrer">SoundCloud</a></li>
+            <li><a href="https://www.youtube.com/watch?v=pf4O9eDGHm4" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap social-grid">
+      <SocialFollow
+        platform="instagram"
+        handle="@theupbeatsduo"
+        href="https://www.instagram.com/theupbeatsduo/"
+        sub="Behind-the-scenes clips, gig highlights and the latest from us."
+      />
+      <SocialFollow
+        platform="youtube"
+        handle="The Upbeats Duo"
+        href="https://www.youtube.com/@theupbeatsduo"
+        sub="Live promo videos and full sets from real weddings and parties."
+      />
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <NewsletterSignup />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { padding-top: 4rem; padding-bottom: 2rem; }
+  .page-hero__sub { color: var(--lavender); max-width: 50ch; font-size: 1.1rem; }
+
+  .contact-grid { display: grid; gap: 2.5rem; grid-template-columns: 1.6fr 1fr; align-items: start; }
+  .social-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr 1fr; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+  .field { display: flex; flex-direction: column; gap: 0.4rem; }
+  .field label { font-weight: 600; font-size: 0.9rem; }
+  .field input, .field select, .field textarea {
+    font-family: var(--font-body); font-size: 1rem;
+    padding: 0.75em 1em; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--ink); color: var(--cream);
+  }
+  .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible {
+    outline: 2px solid var(--gold); outline-offset: 2px;
+  }
+
+  .contact-side { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-side h3 { margin-bottom: 0.6rem; }
+  .contact-side ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+  .contact-side a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 800px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .social-grid { grid-template-columns: 1fr; }
+  }
+</style>

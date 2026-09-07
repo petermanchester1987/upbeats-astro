@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingHero from '../../components/BookingHero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Corporate Event Band Hire',
+  name: 'Corporate Party Band | The Upbeats Music Duo',
+  description: 'The Upbeats are a sure fire hit for any corporate party, awards evening or client event.',
+  provider: { '@type': 'MusicGroup', name: 'The Upbeats Duo' },
+  areaServed: 'United Kingdom',
+};
+---
+
+<Layout
+  title="Corporate Party Band | The Upbeats Music Duo"
+  description="The Upbeats are a sure fire hit for any corporate party, awards evening or client event."
+  image="/open-graph/corporate-hire.png"
+  structuredData={serviceSchema}
+>
+  <BookingHero
+    eyebrow="Corporate Hire"
+    title="A sure fire hit for any corporate event."
+    sub="Award ceremonies, client dinners, product launches and office parties — professional, reliable, and always ready to read the room."
+    image="/src/assets/images/The-Upbeats-Party-Band-Corporate-Hire.jpeg"
+  >
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Bookings', href: '/products/' },
+        { name: 'Corporate Hire', href: '/products/corporate-hire' },
+      ]}
+    />
+  </BookingHero>
+
+  <section class="section-tight">
+    <div class="wrap booking-body">
+      <div>
+        <p class="eyebrow">Corporate events</p>
+        <h2>Music that fits the brief.</h2>
+        <p>We know corporate events need to run to time and hit the right tone &mdash; background music during dinner, a confident MC-style introduction for speeches, and a set that gets even the quietest room up and dancing once the formalities are done.</p>
+        <p>We're fully insured, punctual, and used to working alongside event planners, AV teams and venue staff, so you can hand off the entertainment and focus on everything else.</p>
+        <div class="chips">
+          <span class="chip">PLI &amp; PAT certified</span>
+          <span class="chip">Background sets</span>
+          <span class="chip">Awards &amp; launches</span>
+          <span class="chip">Christmas parties</span>
+          <span class="chip">Full PA &amp; lighting</span>
+        </div>
+        <a class="btn btn-solid" href="/contact/">Check our availability</a>
+      </div>
+      <aside class="card">
+        <h3>Good to know</h3>
+        <ul>
+          <li>Public liability insurance and PAT-tested equipment</li>
+          <li>Risk assessments available on request</li>
+          <li>Sets scaled to your schedule and venue</li>
+          <li>Experience with hotels, function rooms and outdoor marquees</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="cta section-tight">
+    <div class="wrap cta__inner">
+      <div>
+        <h2>Planning a company event?</h2>
+        <p>Send us your date and venue and we'll get back to you with availability and pricing.</p>
+      </div>
+      <a class="btn btn-solid" href="/contact/">Enquire now</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .booking-body { display: grid; gap: 3rem; grid-template-columns: 1.4fr 1fr; align-items: start; }
+  .chips { margin: 1rem 0 1.5rem; }
+  .booking-body ul { padding-left: 1.2rem; color: var(--lavender); }
+  .booking-body li { margin-bottom: 0.6em; }
+  .cta__inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 2.5rem; }
+  @media (max-width: 800px) { .booking-body { grid-template-columns: 1fr; } }
+</style>

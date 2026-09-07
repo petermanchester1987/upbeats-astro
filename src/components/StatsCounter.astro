@@ -1,0 +1,88 @@
+---
+interface Stat {
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+}
+interface Props {
+  stats: Stat[];
+}
+const { stats } = Astro.props;
+---
+
+<div class="stats-counter">
+  {stats.map((s) => (
+    <div class="stat" data-target={s.value} data-prefix={s.prefix ?? ''} data-suffix={s.suffix ?? ''}>
+      <span class="stat__value">{s.prefix ?? ''}0{s.suffix ?? ''}</span>
+      <p>{s.label}</p>
+    </div>
+  ))}
+</div>
+
+<script>
+  // Counts up from 0 to the target every time the stat scrolls into view —
+  // not just the first time — by resetting to 0 when it leaves the viewport.
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DURATION = 1300;
+
+  function format(el: HTMLElement, current: number) {
+    const valueEl = el.querySelector<HTMLElement>('.stat__value');
+    if (!valueEl) return;
+    const prefix = el.dataset.prefix ?? '';
+    const suffix = el.dataset.suffix ?? '';
+    valueEl.textContent = `${prefix}${current.toLocaleString('en-GB')}${suffix}`;
+  }
+
+  function animate(el: HTMLElement) {
+    const target = Number(el.dataset.target ?? '0');
+    if (prefersReduced) {
+      format(el, target);
+      return;
+    }
+    const start = performance.now();
+    function tick(now: number) {
+      const progress = Math.min((now - start) / DURATION, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      format(el, Math.round(target * eased));
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const stats = document.querySelectorAll<HTMLElement>('.stats-counter .stat');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          animate(entry.target as HTMLElement);
+        } else {
+          format(entry.target as HTMLElement, 0);
+        }
+      }
+    },
+    { threshold: 0.5 }
+  );
+  stats.forEach((el) => observer.observe(el));
+</script>
+
+<style>
+  .stats-counter {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
+  .stats-counter .stat__value {
+    display: block;
+    font-family: var(--font-display);
+    color: var(--gold);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-variant-numeric: tabular-nums;
+  }
+  .stats-counter p { color: var(--lavender); margin: 0; }
+
+  @media (min-width: 760px) {
+    .stats-counter { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>

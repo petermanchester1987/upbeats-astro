@@ -1,0 +1,125 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingHero from '../../components/BookingHero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import YouTube from '../../components/YouTube.astro';
+import SocialFollow from '../../components/SocialFollow.astro';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Wedding Band Hire',
+  name: 'Wedding Band | The Upbeats Music Duo',
+  description: "Live wedding music from ceremony to last dance — The Upbeats Duo.",
+  provider: { '@type': 'MusicGroup', name: 'The Upbeats Duo' },
+  areaServed: 'United Kingdom',
+};
+---
+
+<Layout
+  title="Wedding Band | The Upbeats Music Duo"
+  description="The Upbeats Duo are sure to help you get hitched without a hitch — live wedding music from ceremony to last dance."
+  image="/open-graph/weddings.png"
+  structuredData={serviceSchema}
+>
+  <BookingHero
+    eyebrow="Weddings"
+    title="Get hitched without a hitch."
+    sub="From your ceremony through to the very last dance, we'll keep the room moving with live music tailored to you."
+    image="/src/assets/images/the-upbeats-duo-wedding-band.jpeg"
+  >
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Bookings', href: '/products/' },
+        { name: 'Weddings', href: '/products/weddings' },
+      ]}
+    />
+  </BookingHero>
+
+  <section class="section-tight">
+    <div class="wrap booking-body">
+      <div>
+        <p class="eyebrow">Your big day</p>
+        <h2>Live music for every part of your wedding.</h2>
+        <p>Whether it's an intimate instrumental set for your ceremony, background music through the drinks reception, or a full party set to open the dancefloor, The Upbeats Duo can be there for as much or as little of your day as you'd like.</p>
+        <p>We'll work with you ahead of time on song choices &mdash; your first dance, processional and any must-plays &mdash; then bring the energy for the rest of the night from our 600+ song repertoire spanning the 1960s to today.</p>
+        <p>The Upbeats Duo are the right band to get the whole family on the dancefloor, from the Grans who'll only dance to ABBA, to the dad's that love 80's classics and then the youngsters who are after some modern Pop and EDM!</p> 
+        <div class="chips">
+          <span class="chip">Ceremony music</span>
+          <span class="chip">Drinks reception</span>
+          <span class="chip">Wedding breakfast</span>
+          <span class="chip">Evening party set</span>
+          <span class="chip">First dance</span>
+          <span class="chip">PA &amp; lighting included</span>
+        </div>
+        <a class="btn btn-solid" href="/contact/">Check our availability</a>
+      </div>
+      <aside class="card">
+        <h3>What's included</h3>
+        <ul>
+          <li>Full PA system and stage lighting</li>
+          <li>Song requests taken in advance</li>
+          <li>Flexible set lengths to suit your timeline</li>
+          <li>Unmanned DJ-ing between live sets, so the music never stops</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <p class="eyebrow">See us in action</p>
+      <h2>Watch The Upbeats Duo live.</h2>
+      <div class="watch-video">
+        <YouTube
+          id="n_s8J8ZN83o"
+          title="The Upbeats Duo - Party Band 2024 (Modern Promo)"
+          description="A promo video showing the energy The Upbeats Duo bring to live performances, including weddings."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap social-grid">
+      <SocialFollow
+        platform="instagram"
+        handle="@theupbeatsduo"
+        href="https://www.instagram.com/theupbeatsduo/"
+        sub="Behind-the-scenes clips, gig highlights and the latest from us."
+      />
+      <SocialFollow
+        platform="youtube"
+        handle="The Upbeats Duo"
+        href="https://www.youtube.com/@theupbeatsduo"
+        sub="Live promo videos and full sets from real weddings and parties."
+      />
+    </div>
+  </section>
+
+  <section class="cta section-tight">
+    <div class="wrap cta__inner">
+      <div>
+        <h2>Ready to book your date?</h2>
+        <p>Get in touch with your wedding date and venue and we'll check availability.</p>
+      </div>
+      <a class="btn btn-solid" href="/contact/">Enquire now</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .booking-body { display: grid; gap: 3rem; grid-template-columns: 1.4fr 1fr; align-items: start; }
+  .chips { margin: 1rem 0 1.5rem; }
+  .booking-body ul { padding-left: 1.2rem; color: var(--lavender); }
+  .booking-body li { margin-bottom: 0.6em; }
+  .watch-video { max-width: 760px; margin: 1.5rem auto 0; }
+  .social-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr 1fr; }
+  .cta__inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 2.5rem; }
+  @media (max-width: 800px) {
+    .booking-body { grid-template-columns: 1fr; }
+    .social-grid { grid-template-columns: 1fr; }
+  }
+</style>

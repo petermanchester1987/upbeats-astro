@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingHero from '../../components/BookingHero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import YouTube from '../../components/YouTube.astro';
+import SocialFollow from '../../components/SocialFollow.astro';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Private Party Band Hire',
+  name: 'Party Band | The Upbeats Music Duo',
+  description: 'The Upbeats duo are sure to get your next birthday, anniversary or private party rocking.',
+  provider: { '@type': 'MusicGroup', name: 'The Upbeats Duo' },
+  areaServed: 'United Kingdom',
+};
+---
+
+<Layout
+  title="Party Band | The Upbeats Music Duo"
+  description="The Upbeats duo are sure to get your next birthday, anniversary or private party rocking."
+  image="/open-graph/parties.png"
+  structuredData={serviceSchema}
+>
+  <BookingHero
+    eyebrow="Parties"
+    title="Get your next party rocking."
+    sub="Birthdays, anniversaries, garden parties or a good old-fashioned knees-up — we bring the energy and the songbook."
+    image="/src/assets/images/the-upbeats-party-image.jpg"
+  >/
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Bookings', href: '/products/' },
+        { name: 'Parties', href: '/products/parties' },
+      ]}
+    />
+  </BookingHero>
+
+  <section class="section-tight">
+    <div class="wrap booking-body">
+      <div>
+        <p class="eyebrow">Private parties</p>
+        <h2>Any occasion, any size.</h2>
+        <p>From milestone birthdays to garden parties and anniversary celebrations, we tailor our set to the crowd and the occasion. Tell us the vibe you're after and we'll build a set list to match, drawing on our 600+ song repertoire from the 50s and 60s right through to the newest chart hits.</p>
+        <p>We can play indoors or out, and bring our own PA and lighting, so all you need to worry about is the guest list.</p>
+        <div class="chips">
+          <span class="chip">Birthdays</span>
+          <span class="chip">Anniversaries</span>
+          <span class="chip">Garden parties</span>
+          <span class="chip">Private hire</span>
+          <span class="chip">Song requests welcome</span>
+        </div>
+        <a class="btn btn-solid" href="/contact/">Check our availability</a>
+      </div>
+      <aside class="card">
+        <h3>What's included</h3>
+        <ul>
+          <li>Full PA system and lighting</li>
+          <li>Flexible, customisable set lists</li>
+          <li>Indoor or outdoor setup</li>
+          <li>Sets from an hour to a full evening</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <p class="eyebrow">See us in action</p>
+      <h2>Watch The Upbeats Duo live.</h2>
+      <div class="watch-video">
+        <YouTube
+          id="UxMg5ePKJSc"
+          start={0}
+          title="The Upbeats Duo - Party Duo Promo (Retro Party Classics)"
+          description="A promo video showing the energy The Upbeats Duo bring to private parties, playing retro party classics."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap social-grid">
+      <SocialFollow
+        platform="instagram"
+        handle="@theupbeatsduo"
+        href="https://www.instagram.com/theupbeatsduo/"
+        sub="Behind-the-scenes clips, gig highlights and the latest from us."
+      />
+      <SocialFollow
+        platform="youtube"
+        handle="The Upbeats Duo"
+        href="https://www.youtube.com/@theupbeatsduo"
+        sub="Live promo videos and full sets from real weddings and parties."
+      />
+    </div>
+  </section>
+
+  <section class="cta section-tight">
+    <div class="wrap cta__inner">
+      <div>
+        <h2>Planning a party?</h2>
+        <p>Send us your date and we'll let you know if we're free.</p>
+      </div>
+      <a class="btn btn-solid" href="/contact/">Enquire now</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .booking-body { display: grid; gap: 3rem; grid-template-columns: 1.4fr 1fr; align-items: start; }
+  .chips { margin: 1rem 0 1.5rem; }
+  .booking-body ul { padding-left: 1.2rem; color: var(--lavender); }
+  .booking-body li { margin-bottom: 0.6em; }
+  .watch-video { max-width: 760px; margin: 1.5rem auto 0; }
+  .social-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr 1fr; }
+  .cta__inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 2.5rem; }
+  @media (max-width: 800px) {
+    .booking-body { grid-template-columns: 1fr; }
+    .social-grid { grid-template-columns: 1fr; }
+  }
+</style>

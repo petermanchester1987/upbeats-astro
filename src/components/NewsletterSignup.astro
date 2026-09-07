@@ -1,0 +1,153 @@
+---
+// Submits via fetch to /api/subscribe (see netlify/functions/subscribe.ts)
+// rather than a plain form POST, so it can show an inline success/error
+// message without a page reload. That function is the only thing that
+// talks to Brevo — this component never sees an API key.
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  sub?: string;
+  class?: string;
+}
+
+const {
+  eyebrow = 'Stay in the loop',
+  heading = 'Sign Up To Our Mailing List and Get Some Free Music!',
+  sub = 'We send occasional updates on what ships we\'re on, new setlist additions and public gigs — no spam, unsubscribe any time... And, as a thank you for signing up we will send your our EPK!',
+  class: className,
+} = Astro.props;
+---
+
+<newsletter-form class={`newsletter ${className ?? ''}`}>
+  <div class="newsletter__copy">
+    <p class="eyebrow">{eyebrow}</p>
+    <h3>{heading}</h3>
+    <p class="newsletter__sub">{sub}</p>
+  </div>
+  <form class="newsletter__form" novalidate>
+    <label for="newsletter-email" class="visually-hidden">Email address</label>
+    <input type="email" id="newsletter-email" name="email" placeholder="you@example.com" required autocomplete="email" />
+    <button type="submit" class="btn btn-solid">Subscribe</button>
+  </form>
+  <p class="newsletter__status" role="status" aria-live="polite" hidden></p>
+</newsletter-form>
+
+<style>
+  .newsletter {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    /* A warmer, gold-tinted treatment (gradient + accent border + glow)
+       rather than the same flat --panel/--line box every other card on
+       the site uses — this is meant to be the one thing on the page that
+       visibly asks for an action, not just another content card. */
+    background: linear-gradient(135deg, var(--panel-light) 0%, var(--panel) 65%);
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius);
+    padding: 2.25rem 2.5rem;
+    box-shadow: 0 20px 50px rgba(244, 185, 66, 0.14);
+    overflow: hidden;
+  }
+  /* A soft glow anchored to the corner, behind the content (z-index-free —
+     just relies on paint order, since nothing else here is positioned). */
+  .newsletter::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    right: -10%;
+    width: 22rem;
+    height: 22rem;
+    background: radial-gradient(circle, rgba(244, 185, 66, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .newsletter__copy { position: relative; max-width: 34ch; }
+  .newsletter__copy .eyebrow { margin-bottom: 0.1em; }
+  .newsletter__copy h3 { margin: 0 0 0.35em; }
+  .newsletter__sub { margin: 0; color: var(--lavender); font-size: 0.95rem; }
+
+  .newsletter__form {
+    position: relative;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .newsletter__form input {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.75em 1em;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+    background: var(--ink);
+    color: var(--cream);
+    min-width: 240px;
+  }
+  .newsletter__form input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .newsletter__form button { flex-shrink: 0; white-space: nowrap; }
+
+  .newsletter__status { width: 100%; margin: 0; font-size: 0.9rem; }
+  .newsletter__status--ok { color: var(--gold); }
+  .newsletter__status--error { color: var(--pink); }
+
+  @media (max-width: 600px) {
+    .newsletter { padding: 1.75rem; }
+    .newsletter__form { width: 100%; }
+    .newsletter__form input { flex: 1; min-width: 0; }
+  }
+
+  @media (max-width: 480px) {
+    .newsletter__form { flex-direction: column; align-items: stretch; }
+    .newsletter__form input { width: 100%; }
+    .newsletter__form button { width: 100%; justify-content: center; }
+  }
+</style>
+
+<script>
+  class NewsletterForm extends HTMLElement {
+    connectedCallback() {
+      const form = this.querySelector('form');
+      const status = this.querySelector<HTMLElement>('.newsletter__status');
+      const button = this.querySelector<HTMLButtonElement>('button[type="submit"]');
+      const input = this.querySelector<HTMLInputElement>('input[name="email"]');
+      if (!form || !status || !button || !input) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = input.value.trim();
+        if (!email) return;
+
+        button.disabled = true;
+        const originalLabel = button.textContent;
+        button.textContent = 'Subscribing…';
+        status.hidden = true;
+
+        try {
+          const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (res.ok) {
+            status.textContent = "You're on the list — thanks!";
+            status.className = 'newsletter__status newsletter__status--ok';
+            form.reset();
+          } else {
+            status.textContent = data.error || 'Something went wrong — please try again.';
+            status.className = 'newsletter__status newsletter__status--error';
+          }
+        } catch {
+          status.textContent = 'Something went wrong — please try again.';
+          status.className = 'newsletter__status newsletter__status--error';
+        } finally {
+          status.hidden = false;
+          button.disabled = false;
+          button.textContent = originalLabel;
+        }
+      });
+    }
+  }
+  customElements.define('newsletter-form', NewsletterForm);
+</script>

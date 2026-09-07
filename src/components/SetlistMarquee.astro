@@ -1,0 +1,52 @@
+---
+// A concert-marquee style ticker built from real songs in the band's
+// repertoire — the site's signature element.
+interface Props {
+  songs: string[];
+}
+const { songs } = Astro.props;
+const track = [...songs, ...songs];
+---
+
+<div class="marquee" role="marquee" aria-label="A sample of songs from our repertoire">
+  <div class="marquee__track">
+    {track.map((song) => (
+      <span class="marquee__item">{song}<span class="marquee__dot" aria-hidden="true">●</span></span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee {
+    background: var(--gold);
+    color: var(--ink);
+    overflow: hidden;
+    border-top: 3px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
+    padding: 0.9rem 0;
+  }
+  .marquee__track {
+    display: flex;
+    width: max-content;
+    animation: scroll 55s linear infinite;
+  }
+  .marquee:hover .marquee__track { animation-play-state: paused; }
+  .marquee__item {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: clamp(1rem, 2.2vw, 1.35rem);
+    white-space: nowrap;
+    padding: 0 1.25rem;
+  }
+  .marquee__dot { margin-left: 1.25rem; font-size: 0.6rem; opacity: 0.55; }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; flex-wrap: wrap; width: 100%; }
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+const year = new Date().getFullYear();
+
+const socials = [
+  { label: 'Instagram', href: 'https://www.instagram.com/theupbeatsduo/' },
+  { label: 'SoundCloud', href: 'https://soundcloud.com/user-996705933' },
+  { label: 'YouTube', href: 'https://www.youtube.com/watch?v=pf4O9eDGHm4' },
+];
+
+// Only worth offering a way to reopen the cookie-consent banner (see
+// Analytics.astro) once there's actually a GA tag behind it to consent to.
+const hasAnalytics = Boolean(import.meta.env.PUBLIC_GA_ID);
+
+const badges = [
+  { href: 'https://www.poptop.uk.com/supplier/the-upbeats-duo/', src: 'https://www.poptop.uk.com/ranking/the-upbeats-duo/GoldPoptopFeaturedSupplierRating.png', alt: 'Gold Poptop Featured Supplier rating' },
+  { href: 'https://www.lastminutemusicians.com/members/theupbeatsduo.html', src: 'https://www.lastminutemusicians.com/images/v5/LMM-White.png', alt: 'The Upbeats Duo on Last Minute Musicians' },
+  { href: 'https://encoremusicians.com/hire/pop-duos', src: 'https://encoremusicians.com/img/embeds/badge-green.svg', alt: 'Book The Upbeats Duo on Encore Musicians' },
+  { href: 'https://www.entertainersworldwide.com/the-upbeats-duo-profile-193914', src: 'https://www.entertainersworldwide.com/profile-badge/193914/ew-registered-s.png', alt: 'The Upbeats Duo on Entertainers Worldwide' },
+];
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div>
+      <p class="eyebrow">Get in the loop</p>
+      <h3>Let's make some noise.</h3>
+      <p class="footer-lede">Based in the North West of England, gigging across the UK, Europe and aboard cruise ships worldwide.</p>
+      <a class="btn btn-solid" href="/contact/">Book Us Now</a>
+    </div>
+
+    <nav aria-label="Footer">
+      <p class="footer-heading">Site</p>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products/">Bookings</a></li>
+        <li><a href="/blogs/">Blog</a></li>
+        <li><a href="/repertoire/">Repertoire</a></li>
+        <li><a href="https://store.theupbeatsduo.com">Store</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <p class="footer-heading">Say hello</p>
+      <p><a href="mailto:theupbeatsmusicduo@gmail.com">theupbeatsmusicduo@gmail.com</a></p>
+      <ul class="socials">
+        {socials.map((s) => (<li><a href={s.href} target="_blank" rel="noopener noreferrer">{s.label}</a></li>))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap badges">
+    {badges.map((b) => (
+      <a href={b.href} target="_blank" rel="noopener noreferrer">
+        <img src={b.src} alt={b.alt} loading="lazy" width="120" height="40" />
+      </a>
+    ))}
+  </div>
+
+  <div class="wrap footer-bottom">
+    <p>&copy; {year} The Upbeats Duo. All rights reserved.</p>
+    {hasAnalytics && <button type="button" class="cookie-prefs" data-reopen-cookie-banner>Cookie preferences</button>}
+  </div>
+</footer>
+
+<script>
+  // No-ops harmlessly when the cookie-preferences button isn't rendered
+  // (i.e. PUBLIC_GA_ID isn't set — see Footer.astro / Analytics.astro).
+  document.querySelector('[data-reopen-cookie-banner]')?.addEventListener('click', () => {
+    window.dispatchEvent(new Event('cookie-consent:open'));
+  });
+</script>
+
+<style>
+  .site-footer { background: var(--panel); border-top: 1px solid var(--line); margin-top: 4rem; }
+  .footer-top { display: grid; gap: 2.5rem; padding: 4rem 1.5rem 2.5rem; grid-template-columns: 1.4fr 1fr 1fr; }
+  .footer-lede { color: var(--lavender); max-width: 34ch; }
+  .footer-heading { font-family: var(--font-display); text-transform: uppercase; color: var(--gold); letter-spacing: 0.04em; font-size: 0.9rem; margin-bottom: 1rem; }
+  .footer-top ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-top a:not(.btn) { text-decoration: none; color: var(--cream); }
+  .footer-top a:not(.btn):hover { color: var(--gold); }
+  .footer-top a.btn:hover { color: var(--ink); }
+  .badges { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; padding: 1.5rem; border-top: 1px solid var(--line); opacity: 0.85; }
+  .badges img { height: 40px; width: auto; }
+  .footer-bottom { padding: 1.25rem 1.5rem 2rem; color: var(--lavender); font-size: 0.85rem; }
+  @media (max-width: 760px) { .footer-top { grid-template-columns: 1fr; } }
+</style>

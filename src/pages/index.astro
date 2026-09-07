@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SetlistMarquee from '../components/SetlistMarquee.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ReviewsCarousel from '../components/ReviewsCarousel.astro';
+import StatsCounter from '../components/StatsCounter.astro';
+import SocialFollow from '../components/SocialFollow.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import allSongs from '../data/songs.json';
+import { Image } from 'astro:assets';
+import ventureImage from '../assets/images/the-upbeats-on-the-venture.jpeg';
+
+// A hand-picked sample of crowd-pleasers for the marquee, pulled from the
+// same songs.json that powers the searchable repertoire page — one source
+// of truth for the setlist across the whole site.
+const featured = [
+  'Uptown Funk', 'Valerie', 'Dancing Queen', 'I Wanna Dance with Somebody (Who Loves Me)',
+  'Bohemian Rhapsody', 'Shape Of You', "Twist And Shout", 'Shut Up and Dance',
+  'Go Your Own Way', "September", 'Stayin\u2019 Alive', 'Shake It Off',
+];
+const setlist = featured.filter((title) => allSongs.some((s) => s.title === title));
+
+const services = [
+  { href: '/products/weddings', title: 'Weddings', blurb: 'The Upbeats duo are sure to help you get hitched without a hitch!', image: 'https://images.ctfassets.net/q9mnwtzln9su/5fSjTCB9So8h4HrANpuNiK/611cdbb4763b86529c2ff4533cb4eae5/the-upbeats-duo-wedding-band.jpeg?w=800&h=600&fl=progressive&q=60&fm=jpg' },
+  { href: '/products/corporate-hire', title: 'Corporate Hire', blurb: 'The Upbeats are a sure fire hit for any corporate party!', image: 'https://images.ctfassets.net/q9mnwtzln9su/6a9nHDW4lfQljBxoPG04ZZ/e74a98c5c1d949673e48508872fddf32/The_Upbeats_Party_Band_Corporate_Hire.jpeg?w=800&h=600&fl=progressive&q=60&fm=jpg' },
+  { href: '/products/cruises', title: 'Cruises', blurb: 'The Upbeats Duo have 6 years experience working onboard cruise ships!', image: 'https://images.ctfassets.net/q9mnwtzln9su/3ObXQDeE1O8AK75YCoYMcs/e0f9f9f1d30abdadea57aaa49c0d03d0/the-upbeats-duo-on-deck.png?w=800&h=600&q=60&fm=png' },
+  { href: '/products/parties', title: 'Parties', blurb: 'The Upbeats Duo are sure to get your next party rocking!', image: 'https://images.ctfassets.net/q9mnwtzln9su/714OG60BWGGTHCB4HHQ1O9/779061be5f1308056aa60a4adadebba7/The_Upbeats_Party_Promo_pic_5_copy.jpg?w=800&h=600&fl=progressive&q=60&fm=jpg' },
+];
+
+// Add as many reviews here as you like — they now scroll in a carousel
+// rather than a fixed 3-up grid, so this list isn't capped at 3.
+const reviews = [
+  { name: 'Shamina F', occasion: 'Corporate Christmas Party', score: '10/10', quote: 'This was honestly the highlight of our event, and we are absolutely glad we went with The Upbeats Duo, from start to finish the communication was fantastic, no ask was too much, really flexible and willing to work with us and our timings and last but definitely not the least the entire setup and the music was phenomenal, these are two very very talented individuals who are willing to go the extra mile to make your event unforgettable. I highly recommend and encourage you to book with them' },
+  { name: 'Megan Rowley', occasion: '30th Birthday', score: '10/10', quote: 'The Upbeats Duo (Rachel and Peter) were incredible from the beginning to the end! Their communication was amazing and they are so friendly. They had everyone up dancing the whole night, they are brilliant performers and everyone was so impressed. Really added to my party what I wanted and lots of guests have asked for their details too! Thank you so much!' },
+  { name: 'Toni Norman', occasion: 'Open Weekend', score: '10/10', quote: 'Rachel and Peter were the ultimate professionals. A last minute booking from us they couldn\u2019t have been more accommodating, and despite pretty rubbish weather they played with enthusiasm throughout. We\u2019ll certainly book them again.' },
+  { name: 'Gabrielle & Nick', occasion: '70th Birthday Party', score: '10/10', quote: 'Rachel and Peter are an absolutely delightful couple, immensely talented with various instruments and singing. The dance floor was hopping from the get-go until we had to finish.' },
+  { name: 'David Cardno', occasion: '50th Birthday Party', score: '10/10', quote: 'Communication throughout the booking process was first class, and they added a couple of my wife\u2019s favourites into the set. If you booked them for an event I can\u2019t see how you would be disappointed.' },
+];
+
+const stats = [
+  { value: allSongs.length, suffix: '+', label: 'Songs in the repertoire' },
+  { value: 10, label: 'Years gigging professionally' },
+  { value: 2000, suffix: '+', label: 'Weddings, parties & shows' },
+  { value: 7, label: 'Cruise lines and counting' },
+];
+---
+
+<Layout title="Party Band | The Upbeats Music Duo" description="An energetic and established live party duo, available for weddings, corporate parties, cruises and private hire across the UK.">
+  <section class="hero">
+    <div class="hero__media" style="background-image:url('/src/assets/images/hero-party-band.jpg')"></div>
+    <div class="hero__scrim"></div>
+    <div class="hero__second_scrim"></div>
+    <div class="wrap">
+      <div class="hero__content">
+        <p class="eyebrow">The Upbeats Duo</p>
+        <h1>The UK's best live party duo.</h1>
+        <p class="hero__sub">The Upbeats Music Duo are a high quality party band currently working aboard the Cunard Queen Anne Cruise ship, and also available for private booking.</p>
+        <div class="hero__actions">
+          <a class="btn btn-solid" href="/contact/">Book us now</a>
+          <a class="btn btn-outline" href="/products/">View booking information</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SetlistMarquee songs={setlist} />
+
+  <section class="intro">
+    <div class="wrap intro__grid">
+      <div>
+        <p class="eyebrow">Who we are</p>
+        <h2>The number one party duo for hire in the UK.</h2>
+        <p>If you want a big party band sound from a fantastic duo, The Upbeats are everything you could have hoped for. Looking for a smaller band for a party? You can be sure The Upbeats Duo are always a hit at any event, with thousands of parties, weddings and cruises under our belts.</p>
+        <p>We play classic, upbeat hits from current artists all the way back to the 50s, 60s, 70s, 80s, 90s and Noughties &mdash; Pop, Funk, Rock, Soul and more. With over {allSongs.length} songs in our repertoire, The Upbeats are sure to keep your guests happy and get them dancing.</p>
+        <p>We've been gigging professionally for over a decade and have performed literally thousands of shows. We're currently working aboard ships, but whilst we're back in the UK we're based in the North West of England or London &mdash; and we travel everywhere for gigs. Recent clients include Reading FC, Seabourn, Norwegian Cruise Lines, P&amp;O Cruises, Ponant and Windstar.</p>
+        <a class="btn btn-outline" href="/repertoire/">Listen to us</a>
+      </div>
+      <Image src={ventureImage} alt="The Upbeats Duo party band" loading="lazy" width={500} />
+    </div>
+  </section>
+
+  <section class="stats section-tight">
+    <div class="wrap">
+      <StatsCounter stats={stats} />
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="wrap">
+      <p class="eyebrow">Book us for</p>
+      <h2>Every kind of party, covered.</h2>
+      <div class="grid grid-4">
+        {services.map((s) => <ServiceCard {...s} />)}
+      </div>
+    </div>
+  </section>
+
+    <section class="services">
+     <div class="wrap cta__inner">
+      <div>
+        <p class="eyebrow">What Kind Of Music?</p>
+        <h2>Your Kind Of Music.</h2>
+      </div>
+      <div class="cta__actions">
+            <a class="btn btn-outline" href="/repertoire/">See our repertoire</a>
+      </div>
+      <div>   
+        <p>Our typical setlist might include some Amy Winehouse, Bruno Mars, The Bee Gees, MJ, Earth Wind And Fire, Fleetwood Mac and Queen, but we do everything from old time Rock and Roll up till the newest Modern Pop and so much more! <br/> All you have to do is tell us your favourite style or decade and we will nail it for you!</p>
+      </div>
+          
+        
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="wrap">
+      <p class="eyebrow">What people say</p>
+      <h2>Recent reviews.</h2>
+      <ReviewsCarousel reviews={reviews} />
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta__inner">
+      <div>
+        <h2>Let's get your dancefloor moving.</h2>
+        <p>Tell us about your date, venue and vibe &mdash; we'll take it from there.</p>
+      </div>
+      <div class="cta__actions">
+        <a class="btn btn-solid" href="/contact/">Send Us A Booking Enquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="support section-tight">
+    <div class="wrap support__inner">
+      <div>
+        <p class="eyebrow">Enjoying what we do?</p>
+        <h2>Support Us.</h2>
+        <p>Grab our album or, if you're feeling generous, buy us a coffee for the road.</p>
+      </div>
+      <div class="support__actions">
+        <a class="btn btn-pink" href="https://store.theupbeatsduo.com" target="_blank" rel="noopener noreferrer">Buy our album</a>
+        <a class="btn btn-outline" href="https://www.buymeacoffee.com/theupbeatsduo/e/157143" target="_blank" rel="noopener noreferrer">Buy us a coffee</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap social-grid">
+      <SocialFollow
+        platform="instagram"
+        handle="@theupbeatsduo"
+        href="https://www.instagram.com/theupbeatsduo/"
+        sub="Behind-the-scenes clips, gig highlights and the latest from us."
+      />
+      <SocialFollow
+        platform="youtube"
+        handle="The Upbeats Duo"
+        href="https://www.youtube.com/@theupbeatsduo"
+        sub="Live promo videos and full sets from real weddings and parties."
+      />
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <NewsletterSignup />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { position: relative; min-height: 78vh; display: flex; align-items: flex-end; overflow: hidden; }
+  /* .hero being display:flex makes .wrap a flex item, and flex items
+     default to shrinking to fit their content instead of filling available
+     space — since .hero__content is already capped at max-width below,
+     .wrap would otherwise shrink down to roughly that same width, leaving
+     no free space for anything inside it to be pushed right into. flex-grow
+     makes .wrap actually claim space up to its own max-width, same as it
+     does in every other (non-flex) section on the site. */
+  .hero .wrap { flex-grow: 1; }
+  .hero__media { position: absolute; inset: 0; background-size: cover; background-position: left center; }
+  .hero__scrim { position: absolute; inset: 0; background: linear-gradient(0deg, var(--ink) 5%, rgba(23, 15, 43, 0.55) 55%, rgba(23, 15, 43, 0.25) 100%); }
+  .hero__second_scrim { position: absolute; inset: 0; background: linear-gradient(339deg, var(--ink) 5%, rgba(23, 15, 43, 0.55) 55%, rgba(23, 15, 43, 0.25) 100%); }
+
+  .hero__content { position: relative; padding-bottom: 4rem; max-width: 40rem; }
+  .hero__sub { font-size: 1.15rem; color: var(--lavender); max-width: 40ch; }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+
+  .intro__grid { display: grid; gap: 3rem; align-items: center; grid-template-columns: 1.2fr 1fr; }
+  .intro__grid img { border-radius: var(--radius); }
+
+  .stats { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  .cta__inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 3rem; }
+  .cta__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+  .support__inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; }
+  .support__inner p { color: var(--lavender); max-width: 40ch; }
+  .support__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+  .social-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr 1fr; }
+
+  @media (max-width: 760px) {
+    .intro__grid { grid-template-columns: 1fr; }
+    .social-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Landscape tablets and up only — .wrap keeps centering itself exactly
+     as everywhere else on the site (untouched here). width: fit-content
+     is the load-bearing part: it makes .hero__content shrink to its own
+     content size (still capped by max-width above) instead of the block
+     default of filling the available width, which is what actually lets
+     margin-left: auto push it flush right within .wrap. Below this
+     breakpoint .hero__content stays full-width, matching the mobile/
+     portrait-tablet layout. */
+  @media (min-width: 861px) {
+    .hero__content { width: fit-content; margin-left: auto; }
+  }
+</style>

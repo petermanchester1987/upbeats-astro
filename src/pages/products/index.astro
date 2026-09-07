@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const services = [
+  { href: '/products/weddings', title: 'Weddings', blurb: 'The Upbeats duo are sure to help you get hitched without a hitch! From your ceremony through to the last dance.', image: 'https://images.ctfassets.net/q9mnwtzln9su/5fSjTCB9So8h4HrANpuNiK/611cdbb4763b86529c2ff4533cb4eae5/the-upbeats-duo-wedding-band.jpeg?w=800&h=600&fl=progressive&q=60&fm=jpg' },
+  { href: '/products/corporate-hire', title: 'Corporate Hire', blurb: 'The Upbeats are a sure fire hit for any corporate party, awards do, or client event.', image: 'https://images.ctfassets.net/q9mnwtzln9su/6a9nHDW4lfQljBxoPG04ZZ/e74a98c5c1d949673e48508872fddf32/The_Upbeats_Party_Band_Corporate_Hire.jpeg?w=800&h=600&fl=progressive&q=60&fm=jpg' },
+  { href: '/products/cruises', title: 'Cruises', blurb: 'The Upbeats Duo have years of experience working onboard cruise ships around the world.', image: 'https://images.ctfassets.net/q9mnwtzln9su/3ObXQDeE1O8AK75YCoYMcs/e0f9f9f1d30abdadea57aaa49c0d03d0/the-upbeats-duo-on-deck.png?w=800&h=600&q=60&fm=png' },
+  { href: '/products/parties', title: 'Parties', blurb: 'The Upbeats duo are sure to get your next birthday, anniversary or private party rocking!', image: 'https://images.ctfassets.net/q9mnwtzln9su/714OG60BWGGTHCB4HHQ1O9/779061be5f1308056aa60a4adadebba7/The_Upbeats_Party_Promo_pic_5_copy.jpg?w=800&h=600&fl=progressive&q=60&fm=jpg' },
+  { href: '/products/christmas-party-band', title: 'Christmas Party Band', blurb: 'Get your office or family Christmas party swinging with a festive set from The Upbeats.', image: 'https://images.ctfassets.net/q9mnwtzln9su/714OG60BWGGTHCB4HHQ1O9/779061be5f1308056aa60a4adadebba7/The_Upbeats_Party_Promo_pic_5_copy.jpg?w=800&h=600&fl=progressive&q=60&fm=jpg' },
+];
+---
+
+<Layout
+  title="Bookings | The Upbeats Music Duo"
+  description="Book The Upbeats Duo for your wedding, corporate event, cruise, party or Christmas do."
+  image="/open-graph/bookings.png"
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Bookings', href: '/products/' }]} />
+      <p class="eyebrow">Book us for</p>
+      <h1>Every kind of party, covered.</h1>
+      <p class="page-hero__sub">Pick the event type below to see pricing information, set details and everything you need to know before booking.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap grid grid-3">
+      {services.map((s) => <ServiceCard {...s} />)}
+    </div>
+  </section>
+
+  <section class="cta section-tight">
+    <div class="wrap cta__inner">
+      <div>
+        <h2>Not sure which fits?</h2>
+        <p>Tell us about your event and we'll point you in the right direction.</p>
+      </div>
+      <a class="btn btn-solid" href="/contact/">Get in touch</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { padding-top: 4rem; padding-bottom: 2rem; }
+  .page-hero__sub { color: var(--lavender); max-width: 50ch; font-size: 1.1rem; }
+  .cta__inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 2.5rem; }
+</style>

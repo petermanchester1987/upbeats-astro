@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingHero from '../../components/BookingHero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import YouTube from '../../components/YouTube.astro';
+
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Christmas Party Band Hire',
+  name: 'Christmas Party Band | The Upbeats Music Duo',
+  description: 'Get your office or family Christmas party swinging with a festive live set from The Upbeats.',
+  provider: { '@type': 'MusicGroup', name: 'The Upbeats Duo' },
+  areaServed: 'United Kingdom',
+};
+---
+
+<Layout
+  title="Christmas Party Band | The Upbeats Music Duo"
+  description="Get your office or family Christmas party swinging with a festive live set from The Upbeats."
+  image="/open-graph/christmas-party-band.png"
+  structuredData={serviceSchema}
+>
+  <BookingHero
+    eyebrow="Christmas"
+    title="Get your Christmas party swinging."
+    sub="Festive favourites mixed in with all the usual party classics — book early, December fills up fast."
+    image="/src/assets/images/the-upbeats-party-promo-christmas-party.jpeg"
+  >
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Bookings', href: '/products/' },
+        { name: 'Christmas Party Band', href: '/products/christmas-party-band' },
+      ]}
+    />
+  </BookingHero>
+
+  <section class="section-tight">
+    <div class="wrap booking-body">
+      <div>
+        <p class="eyebrow">Christmas parties</p>
+        <h2>Office dos and family gatherings.</h2>
+        <p>Whether it's your office Christmas party or a family get-together, we'll weave festive classics through our usual party set to keep the whole room &mdash; from grandparents to colleagues &mdash; up and dancing.</p>
+        <p>December is our busiest month, so if you're planning a Christmas event, we'd recommend getting in touch as early as possible to lock in your date.</p>
+        <div class="chips">
+          <span class="chip">Festive setlist</span>
+          <span class="chip">Office parties</span>
+          <span class="chip">Family celebrations</span>
+          <span class="chip">Book early for December</span>
+        </div>
+        <a class="btn btn-solid" href="/contact/">Check December availability</a>
+      </div>
+      <aside class="card">
+        <h3>Good to know</h3>
+        <ul>
+          <li>December dates book up months in advance</li>
+          <li>Festive songs blended into our usual party set</li>
+          <li>Full PA and lighting included</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <p class="eyebrow">Whole Lotta Festivity</p>
+      <h2>Watch The Upbeats Duo Christmas Promo.</h2>
+      <div class="watch-video">
+        <YouTube
+          id="M1C3I6mff1Q"
+          start={0}
+          title="The Upbeats Duo - Party Duo Promo (Retro Party Classics)"
+          description="A promo video showing the energy The Upbeats Duo bring to private parties, playing retro party classics."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="cta section-tight">
+    <div class="wrap cta__inner">
+      <div>
+        <h2>Ready for the party season?</h2>
+        <p>Get in touch early to secure your December date.</p>
+      </div>
+      <a class="btn btn-solid" href="/contact/">Enquire now</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .booking-body { display: grid; gap: 3rem; grid-template-columns: 1.4fr 1fr; align-items: start; }
+  .chips { margin: 1rem 0 1.5rem; }
+  .booking-body ul { padding-left: 1.2rem; color: var(--lavender); }
+  .booking-body li { margin-bottom: 0.6em; }
+  .cta__inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 2.5rem; }
+  @media (max-width: 800px) { .booking-body { grid-template-columns: 1fr; } }
+</style>

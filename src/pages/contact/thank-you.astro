@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Thanks | The Upbeats Music Duo"
+  description="Thanks for getting in touch with The Upbeats Duo — we'll reply as soon as we can."
+>
+  <section class="thanks">
+    <div class="wrap">
+      <p class="eyebrow">Message sent</p>
+      <h1>Thanks &mdash; got it!</h1>
+      <p>We'll take a look and get back to you as soon as we can, usually within a day or two.</p>
+      <div class="thanks__actions">
+        <a class="btn btn-solid" href="/">Back to homepage</a>
+        <a class="btn btn-outline" href="/repertoire/">Browse our repertoire</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thanks { padding: 6rem 0; text-align: center; }
+  .thanks p { color: var(--lavender); max-width: 40ch; margin: 0 auto 1.5rem; }
+  .thanks__actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+</style>

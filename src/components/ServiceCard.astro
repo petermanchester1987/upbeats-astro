@@ -1,0 +1,28 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  blurb: string;
+  image: string;
+}
+const { href, title, blurb, image } = Astro.props;
+---
+
+<a class="service-card" href={href}>
+  <div class="service-card__image" style={`background-image:url(${image})`}></div>
+  <div class="service-card__body">
+    <h3>{title}</h3>
+    <p>{blurb}</p>
+    <span class="service-card__link">Read more &rarr;</span>
+  </div>
+</a>
+
+<style>
+  .service-card { display: flex; flex-direction: column; text-decoration: none; color: var(--cream); background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: transform 0.2s ease, border-color 0.2s ease; }
+  .service-card:hover { transform: translateY(-4px); border-color: var(--gold-dim); }
+  .service-card__image { aspect-ratio: 4 / 3; background-size: cover; background-position: center; background-color: var(--panel-light); }
+  .service-card__body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+  .service-card__body h3 { margin-bottom: 0.4em; }
+  .service-card__body p { color: var(--lavender); flex: 1; font-size: 0.95rem; }
+  .service-card__link { font-weight: 700; color: var(--gold); font-size: 0.9rem; }
+</style>

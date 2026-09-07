@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Layout
+  title="Blog | The Upbeats Music Duo"
+  description="News, tips and stories from The Upbeats Duo — a live party band based in the North West of England."
+  image="/open-graph/blog.png"
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blogs/' }]} />
+      <p class="eyebrow">From the road</p>
+      <h1>The Upbeats Blog.</h1>
+      <p class="page-hero__sub">Tips on booking live music, stories from the road, and news from The Upbeats Duo.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap grid grid-3">
+      {posts.map((post) => (
+        <a class="post-card" href={`/blogs/${post.id}`}>
+          {post.data.image && (
+            <div class="post-card__image">
+              <Image
+                src={post.data.image}
+                alt={post.data.imageAlt ?? ''}
+                width={600}
+                style={`object-position: ${post.data.imagePosition ?? 'center'};`}
+              />
+            </div>
+          )}
+          <div class="post-card__body">
+            <span class="post-card__date">
+              {post.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </span>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+            <span class="post-card__link">Read the post &rarr;</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <NewsletterSignup />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { padding-top: 4rem; padding-bottom: 2rem; }
+  .page-hero__sub { color: var(--lavender); max-width: 50ch; font-size: 1.1rem; }
+  .post-card {
+    display: flex; flex-direction: column;
+    text-decoration: none; color: var(--cream);
+    background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .post-card:hover { transform: translateY(-4px); border-color: var(--gold-dim); }
+  .post-card__image {
+    aspect-ratio: 16 / 9;
+    background-color: var(--panel-light);
+    overflow: hidden;
+  }
+  .post-card__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .post-card__body { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.75rem; flex: 1; }
+  .post-card__date { color: var(--lavender); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .post-card p { color: var(--lavender); font-size: 0.95rem; flex: 1; }
+  .post-card__link { color: var(--gold); font-weight: 700; font-size: 0.9rem; }
+</style>

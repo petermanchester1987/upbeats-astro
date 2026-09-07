@@ -1,0 +1,145 @@
+---
+import songs from '../data/songs.json';
+import artists from '../data/artists.json';
+---
+
+<div class="repertoire-browser">
+  <div class="repertoire-browser__controls">
+    <label class="visually-hidden" for="song-search">Search by song or artist</label>
+    <input
+      id="song-search"
+      type="search"
+      placeholder="Search by song or artist…"
+      autocomplete="off"
+    />
+    <select id="artist-filter" aria-label="Filter by artist">
+      <option value="">All artists ({artists.length})</option>
+      {artists.map((a) => <option value={a}>{a}</option>)}
+    </select>
+  </div>
+
+  <p class="repertoire-browser__count" id="song-count" aria-live="polite">
+    Showing {songs.length} of {songs.length} songs
+  </p>
+
+  <ul class="repertoire-browser__list" id="song-list">
+    {songs.map((s) => (
+      <li data-title={s.title.toLowerCase()} data-artist={s.artist.toLowerCase()}>
+        <span class="song-title">{s.title}</span>
+        <span class="song-artist">{s.artist}</span>
+      </li>
+    ))}
+  </ul>
+
+  <p class="repertoire-browser__empty" id="song-empty" hidden>
+    No songs match that search — try a different title or artist, or get in
+    touch with a request.
+  </p>
+</div>
+
+<script>
+  const searchInput = document.getElementById('song-search') as HTMLInputElement;
+  const artistSelect = document.getElementById('artist-filter') as HTMLSelectElement;
+  const list = document.getElementById('song-list') as HTMLUListElement;
+  const items = Array.from(list.querySelectorAll('li'));
+  const countEl = document.getElementById('song-count') as HTMLElement;
+  const emptyEl = document.getElementById('song-empty') as HTMLElement;
+  const total = items.length;
+
+  function applyFilters() {
+    const query = searchInput.value.trim().toLowerCase();
+    const artist = artistSelect.value.toLowerCase();
+    let visible = 0;
+
+    for (const item of items) {
+      const title = item.dataset.title ?? '';
+      const itemArtist = item.dataset.artist ?? '';
+
+      const matchesQuery = !query || title.includes(query) || itemArtist.includes(query);
+      const matchesArtist = !artist || itemArtist === artist;
+      const show = matchesQuery && matchesArtist;
+
+      // Note: we set style.display directly rather than the `hidden`
+      // attribute — `.repertoire-browser__list li { display: flex }` below
+      // has higher priority than the browser's default `[hidden]` rule
+      // (author styles always beat the UA stylesheet), so `hidden` alone
+      // was being silently overridden and every song stayed visible.
+      item.style.display = show ? '' : 'none';
+      if (show) visible += 1;
+    }
+
+    countEl.textContent = `Showing ${visible} of ${total} songs`;
+    emptyEl.hidden = visible !== 0;
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+  artistSelect.addEventListener('change', applyFilters);
+</script>
+
+<style>
+  .repertoire-browser__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .repertoire-browser__controls input,
+  .repertoire-browser__controls select {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.75em 1em;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--cream);
+    max-width: 100%;
+  }
+
+  .repertoire-browser__controls input { flex: 1; min-width: 220px; }
+  .repertoire-browser__controls select { min-width: 200px; }
+  .repertoire-browser__controls input::placeholder { color: var(--lavender); }
+
+  .repertoire-browser__controls input:focus-visible,
+  .repertoire-browser__controls select:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .repertoire-browser__count {
+    color: var(--lavender);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .repertoire-browser__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.6rem;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+  }
+
+  .repertoire-browser__list li {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.7em 0.9em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+  }
+
+  .song-title { font-weight: 600; }
+  .song-artist { color: var(--gold); font-size: 0.85rem; }
+
+  .repertoire-browser__empty {
+    color: var(--lavender);
+    text-align: center;
+    padding: 2rem 0;
+  }
+</style>

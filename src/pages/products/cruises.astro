@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingHero from '../../components/BookingHero.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Cruise Ship Entertainment',
+  name: 'Cruise Ship Band | The Upbeats Music Duo',
+  description: 'The Upbeats Duo have years of experience working onboard cruise ships worldwide, including Norwegian, P&O and Windstar.',
+  provider: { '@type': 'MusicGroup', name: 'The Upbeats Duo' },
+  areaServed: 'Worldwide',
+};
+---
+
+<Layout
+  title="Cruise Ship Band | The Upbeats Music Duo"
+  description="The Upbeats Duo have years of experience working onboard cruise ships worldwide, including Norwegian, P&O and Windstar."
+  image="/open-graph/cruises.png"
+  structuredData={serviceSchema}
+>
+  <BookingHero
+    eyebrow="Cruises"
+    title="Years of experience at sea."
+    sub="We've spent years playing aboard cruise ships around the world, from intimate lounge sets to full deck parties."
+    image="/src/assets/images/the-upbeats-duo-cruise-band.jpeg"
+  >
+    <Breadcrumbs
+      slot="breadcrumbs"
+      items={[
+        { name: 'Home', href: '/' },
+        { name: 'Bookings', href: '/products/' },
+        { name: 'Cruises', href: '/products/cruises' },
+      ]}
+    />
+  </BookingHero>
+
+  <section class="section-tight">
+    <div class="wrap booking-body">
+      <div>
+        <p class="eyebrow">Cruise entertainment</p>
+        <h2>A proven live act for cruise lines.</h2>
+        <p>We're currently working aboard Cunard Queen Anne, and have previously performed for Seabourn, Norwegian Cruise Lines, P&amp;O Cruises, Ponant and Windstar. Onboard, we cover everything from relaxed lounge-bar sets to high-energy deck parties &mdash; adapting our repertoire to suit each sailing, itinerary and audience.</p>
+        <p>If you're a cruise line or entertainment booker looking for a reliable, experienced live act, we'd love to talk about opportunities.</p>
+        <p>We even have three Guest entertainer shows that have been international hits aboard some of the most prestigious cruise ships in the world. See our <a href="https://www.the-manchesters.com" target="_blank" rel="noopener noreferrer">Guest Entertainer Website</a></p>
+        <div class="chips">
+          <span class="chip">Lounge &amp; bar sets</span>
+          <span class="chip">Deck parties</span>
+          <span class="chip">Contract experience</span>
+          <span class="chip">International travel ready</span>
+        </div>
+        <a class="btn btn-solid" href="/contact/">Get in touch about contracts</a>
+      </div>
+      <aside class="card">
+        <h3>Cruise lines we've worked with</h3>
+        <ul>
+          <li>Cunard</li>
+          <li>Seabourn</li>
+          <li>Ponant Cruises</li>
+          <li>Norwegian Cruise Lines</li>
+          <li>P&amp;O Cruises</li>
+          <li>Windstar</li>
+          <li>APT</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="cta section-tight">
+    <div class="wrap cta__inner">
+      <div>
+        <h2>Booking for a cruise line?</h2>
+        <p>Reach out with your entertainment requirements and sailing schedule.</p>
+      </div>
+      <a class="btn btn-solid" href="/contact/">Enquire now</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .booking-body { display: grid; gap: 3rem; grid-template-columns: 1.4fr 1fr; align-items: start; }
+  .chips { margin: 1rem 0 1.5rem; }
+  .booking-body ul { padding-left: 1.2rem; color: var(--lavender); }
+  .booking-body li { margin-bottom: 0.6em; }
+  .cta__inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 2.5rem; }
+  @media (max-width: 800px) { .booking-body { grid-template-columns: 1fr; } }
+</style>

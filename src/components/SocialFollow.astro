@@ -1,0 +1,117 @@
+---
+// A static "follow us" card — deliberately no third-party widget script and
+// no API/access-token to maintain for either platform, so this never breaks
+// and costs nothing at page-load. The whole card is one link (not just a
+// button) to keep the click target as large and forgiving as possible.
+//
+// Icon accent colours borrow the site's existing button semantics rather
+// than each platform's own brand colour: pink (the site's secondary-CTA
+// colour, see .btn-pink) for Instagram, gold (the primary-CTA colour, see
+// .btn-solid) for YouTube — so the pair reads as "two site accent colours
+// side by side" instead of clashing with the palette.
+interface Props {
+  platform: 'instagram' | 'youtube';
+  handle: string;
+  href: string;
+  heading?: string;
+  sub?: string;
+  class?: string;
+}
+
+const { platform, handle, href, heading = `Follow ${handle} on ${platform === 'instagram' ? 'Instagram' : 'YouTube'}`, sub, class: className } = Astro.props;
+
+const isInstagram = platform === 'instagram';
+const iconStyle = isInstagram
+  ? '--accent: var(--pink); --accent-ink: var(--cream);'
+  : '--accent: var(--gold); --accent-ink: var(--ink);';
+const platformLabel = isInstagram ? 'Instagram' : 'YouTube';
+---
+
+<a
+  class={`social-follow ${className ?? ''}`}
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={`Follow The Upbeats Duo (${handle}) on ${platformLabel} — opens in a new tab`}
+>
+  <span class="social-follow__icon" style={iconStyle} aria-hidden="true">
+    {isInstagram ? (
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="var(--accent-ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5.5" />
+        <circle cx="12" cy="12" r="4.6" />
+        <circle cx="17.4" cy="6.6" r="0.6" fill="var(--accent-ink)" stroke="none" />
+      </svg>
+    ) : (
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
+        <rect x="2" y="4.5" width="20" height="15" rx="4.5" stroke="var(--accent-ink)" stroke-width="2" />
+        <path d="M10.5 9 L15.5 12 L10.5 15 Z" fill="var(--accent-ink)" />
+      </svg>
+    )}
+  </span>
+  <span class="social-follow__body">
+    <span class="social-follow__heading">{heading}</span>
+    {sub && <span class="social-follow__sub">{sub}</span>}
+  </span>
+  <span class="social-follow__cta">Follow<span class="social-follow__arrow" aria-hidden="true">&rarr;</span></span>
+</a>
+
+<style>
+  .social-follow {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    text-decoration: none;
+    color: var(--cream);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .social-follow:hover,
+  .social-follow:focus-visible { transform: translateY(-4px); border-color: var(--gold-dim); }
+  .social-follow:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+  .social-follow__icon {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .social-follow__body { flex: 1; min-width: 0; }
+  .social-follow__heading {
+    display: block;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: 1.1rem;
+  }
+  .social-follow__sub {
+    display: block;
+    color: var(--lavender);
+    font-size: 0.9rem;
+    margin-top: 0.3em;
+  }
+
+  .social-follow__cta {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .social-follow__arrow { transition: transform 0.2s ease; }
+  .social-follow:hover .social-follow__arrow,
+  .social-follow:focus-visible .social-follow__arrow { transform: translateX(4px); }
+
+  @media (max-width: 583px) {
+    .social-follow { flex-direction: column; text-align: center; }
+    .social-follow__cta { margin-top: 0.25rem; }
+  }
+</style>

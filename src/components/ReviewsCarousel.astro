@@ -1,0 +1,144 @@
+---
+import ReviewCard from './ReviewCard.astro';
+
+interface Review {
+  name: string;
+  occasion: string;
+  score: string;
+  quote: string;
+}
+interface Props {
+  reviews: Review[];
+}
+const { reviews } = Astro.props;
+---
+
+<div class="reviews-carousel">
+  <div class="reviews-carousel__track" role="region" aria-label="Customer reviews">
+    {reviews.map((r) => (
+      <div class="reviews-carousel__item">
+        <ReviewCard {...r} />
+      </div>
+    ))}
+  </div>
+
+  {reviews.length > 1 && (
+    <div class="reviews-carousel__controls">
+      <button type="button" class="reviews-carousel__btn" data-dir="-1" aria-label="Previous review">&larr;</button>
+      <button type="button" class="reviews-carousel__btn" data-dir="1" aria-label="Next review">&rarr;</button>
+    </div>
+  )}
+</div>
+
+<script>
+  // Auto-advances every few seconds, but pauses the moment a visitor
+  // touches it (hover, focus, or manual scroll/drag) so it never fights
+  // someone trying to read at their own pace. Skips autoplay entirely
+  // for prefers-reduced-motion.
+  document.querySelectorAll<HTMLElement>('.reviews-carousel').forEach((carousel) => {
+    const track = carousel.querySelector<HTMLElement>('.reviews-carousel__track');
+    if (!track) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const AUTO_ADVANCE_MS = 5500;
+    let timer: number | undefined;
+    let resumeTimer: number | undefined;
+
+    function itemWidth() {
+      const first = track!.querySelector<HTMLElement>('.reviews-carousel__item');
+      return first ? first.getBoundingClientRect().width + 20 : track!.clientWidth;
+    }
+
+    function scrollByOne(dir: number) {
+      track!.scrollBy({ left: dir * itemWidth(), behavior: 'smooth' });
+    }
+
+    function atEnd() {
+      return track!.scrollLeft + track!.clientWidth >= track!.scrollWidth - 4;
+    }
+
+    function tick() {
+      if (atEnd()) {
+        track!.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        scrollByOne(1);
+      }
+    }
+
+    function stop() {
+      if (timer) { window.clearInterval(timer); timer = undefined; }
+    }
+
+    function start() {
+      if (prefersReduced || timer) return;
+      timer = window.setInterval(tick, AUTO_ADVANCE_MS);
+    }
+
+    function pauseThenResume() {
+      stop();
+      if (resumeTimer) window.clearTimeout(resumeTimer);
+      resumeTimer = window.setTimeout(start, AUTO_ADVANCE_MS * 2);
+    }
+
+    carousel.querySelectorAll<HTMLButtonElement>('.reviews-carousel__btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        scrollByOne(Number(btn.dataset.dir));
+        pauseThenResume();
+      });
+    });
+
+    carousel.addEventListener('pointerenter', stop);
+    carousel.addEventListener('focusin', stop);
+    carousel.addEventListener('pointerleave', start);
+    carousel.addEventListener('focusout', start);
+    track.addEventListener('scroll', pauseThenResume, { passive: true });
+
+    start();
+  });
+</script>
+
+<style>
+  .reviews-carousel { position: relative; }
+
+  .reviews-carousel__track {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-dim) transparent;
+  }
+
+  .reviews-carousel__item {
+    flex: 0 0 min(340px, 85vw);
+    scroll-snap-align: start;
+  }
+
+  .reviews-carousel__item :global(.review) { height: 100%; }
+
+  .reviews-carousel__controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .reviews-carousel__btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--cream);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .reviews-carousel__btn:hover,
+  .reviews-carousel__btn:focus-visible {
+    border-color: var(--gold);
+    color: var(--gold);
+    outline: none;
+  }
+</style>

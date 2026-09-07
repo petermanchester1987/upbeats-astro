@@ -1,0 +1,101 @@
+---
+// Google Analytics 4, gated behind both a PUBLIC_GA_ID env var and visitor
+// cookie consent (required under UK GDPR/PECR before non-essential cookies
+// load). Nothing in this component renders — no banner, no script, zero
+// added bytes — until PUBLIC_GA_ID is set, so it's safe to leave wired in
+// through development and only "goes live" once that variable is set on
+// the host at deploy time. See .env.example.
+const gaId = import.meta.env.PUBLIC_GA_ID;
+---
+
+{gaId && (
+  <cookie-consent data-ga-id={gaId}>
+    <div class="cookie-banner" role="dialog" aria-label="Cookie consent" hidden>
+      <p>
+        We use Google Analytics to see how visitors find and use this site. It sets cookies, so we only turn it on if you accept. But rest assured we're not doing anything dodgy or spamming anybody.
+      </p>
+      <div class="cookie-banner__actions">
+        <button type="button" class="btn btn-outline" data-cookie-reject>Reject</button>
+        <button type="button" class="btn btn-solid" data-cookie-accept>Accept</button>
+      </div>
+    </div>
+  </cookie-consent>
+)}
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 200;
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    padding: 1.25rem 1.5rem;
+  }
+  /* Astro scopes ".cookie-banner { display: flex }" to two selectors
+     (class + its data-astro-cid attribute), which outranks the browser's
+     built-in "[hidden] { display: none }" rule (a single attribute
+     selector) — without this, toggling the hidden property never actually
+     hides the banner. */
+  .cookie-banner[hidden] { display: none; }
+  .cookie-banner p { flex: 1 1 260px; margin: 0; color: var(--lavender); font-size: 0.9rem; }
+  .cookie-banner__actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+  .cookie-banner .btn { padding: 0.6em 1.3em; font-size: 0.9rem; }
+</style>
+
+<script>
+  class CookieConsent extends HTMLElement {
+    connectedCallback() {
+      const banner = this.querySelector<HTMLElement>('.cookie-banner');
+      const gaId = this.dataset.gaId ?? '';
+      if (!banner || !gaId) return;
+
+      const stored = localStorage.getItem('cookie-consent');
+      if (stored === 'accepted') {
+        this.loadGA(gaId);
+      } else if (stored !== 'rejected') {
+        banner.hidden = false;
+      }
+
+      this.querySelector('[data-cookie-accept]')?.addEventListener('click', () => {
+        localStorage.setItem('cookie-consent', 'accepted');
+        banner.hidden = true;
+        this.loadGA(gaId);
+      });
+      this.querySelector('[data-cookie-reject]')?.addEventListener('click', () => {
+        localStorage.setItem('cookie-consent', 'rejected');
+        banner.hidden = true;
+      });
+
+      // Lets a "Cookie preferences" link elsewhere on the site (see Footer)
+      // reopen the banner so visitors can change their mind later.
+      window.addEventListener('cookie-consent:open', () => {
+        banner.hidden = false;
+      });
+    }
+
+    loadGA(id: string) {
+      const w = window as unknown as { dataLayer: unknown[]; gtag: (...args: unknown[]) => void };
+      if (w.dataLayer) return;
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+      document.head.appendChild(script);
+
+      w.dataLayer = w.dataLayer || [];
+      w.gtag = (...args: unknown[]) => w.dataLayer.push(args);
+      w.gtag('js', new Date());
+      w.gtag('config', id);
+    }
+  }
+  customElements.define('cookie-consent', CookieConsent);
+</script>
