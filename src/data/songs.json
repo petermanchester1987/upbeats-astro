@@ -1,17 +1,17 @@
 [
-    {
+  {
     "title": "Dreadlock Holiday",
     "artist": "10cc",
     "tags": []
   },
   {
-    "title": "Shallow",
-    "artist": "A Star Is Born",
+    "title": "Take On Me",
+    "artist": "A Ha",
     "tags": []
   },
   {
-    "title": "Take On Me",
-    "artist": "A Ha",
+    "title": "Shallow",
+    "artist": "A Star Is Born",
     "tags": []
   },
   {
@@ -87,7 +87,7 @@
     "artist": "Al Green",
     "tags": []
   },
-    {
+  {
     "title": "Eye In The Sky",
     "artist": "Alan Parsons Project",
     "tags": []
@@ -106,7 +106,7 @@
     "artist": "Amy Winehouse",
     "tags": []
   },
-    {
+  {
     "title": "Love Is A Losing Game",
     "artist": "Amy Winehouse",
     "tags": []
@@ -132,7 +132,7 @@
     "title": "Time To Say Goodbye",
     "artist": "Andrea Bocelli and Sarah Brightman",
     "tags": [
-        "Classical"
+      "Classical"
     ]
   },
   {
@@ -141,13 +141,6 @@
     "tags": [
       "40's",
       "Ballad"
-    ]
-  },
-  {
-    "title": "It's The Most Wonderful Time Of The Year",
-    "artist": "Xmas Andy Williams",
-    "tags": [
-      "Christmas"
     ]
   },
   {
@@ -221,7 +214,7 @@
     "artist": "Bee Gees",
     "tags": []
   },
-    {
+  {
     "title": "How Deep Is Your Love",
     "artist": "Bee Gees",
     "tags": []
@@ -250,13 +243,13 @@
     "tags": []
   },
   {
-    "title": "Keep Your Head Up",
-    "artist": "Ben Howard",
+    "title": "Stand By Me",
+    "artist": "Ben E King",
     "tags": []
   },
   {
-    "title": "Stand By Me",
-    "artist": "Ben E King",
+    "title": "Keep Your Head Up",
+    "artist": "Ben Howard",
     "tags": []
   },
   {
@@ -288,7 +281,7 @@
     "artist": "Bill Haley & His Comets",
     "tags": []
   },
-      {
+  {
     "title": "(I've Had) The Time Of My Life",
     "artist": "Bill Medley & Jennifer Warnes",
     "tags": []
@@ -336,13 +329,13 @@
     "artist": "Black Box",
     "tags": []
   },
-    {
+  {
     "title": "I Gotta Feelin'",
     "artist": "Black Eyed Peas",
     "tags": []
   },
   {
-    "title": "One Way Or Another",
+    "title": "Call Me",
     "artist": "Blondie",
     "tags": []
   },
@@ -352,7 +345,7 @@
     "tags": []
   },
   {
-    "title": "Call Me",
+    "title": "One Way Or Another",
     "artist": "Blondie",
     "tags": []
   },
@@ -366,11 +359,6 @@
     "artist": "Bob Dylan",
     "tags": []
   },
-    {
-    "title": "It Ain't Me Babe",
-    "artist": "Bob Dylan & Joan Baez",
-    "tags": []
-  },
   {
     "title": "Lay Lady Lay",
     "artist": "Bob Dylan",
@@ -382,7 +370,17 @@
     "tags": []
   },
   {
+    "title": "It Ain't Me Babe",
+    "artist": "Bob Dylan & Joan Baez",
+    "tags": []
+  },
+  {
     "title": "I Shot the Sheriff",
+    "artist": "Bob Marley",
+    "tags": []
+  },
+  {
+    "title": "Is This Love",
     "artist": "Bob Marley",
     "tags": []
   },
@@ -397,11 +395,6 @@
     "tags": []
   },
   {
-    "title": "Is This Love",
-    "artist": "Bob Marley",
-    "tags": []
-  },
-  {
     "title": "Old Time Rock And Roll",
     "artist": "Bob Seger",
     "tags": []
@@ -411,14 +404,9 @@
     "artist": "Bobby Darin",
     "tags": []
   },
-    {
+  {
     "title": "Mack The Knife",
     "artist": "Bobby Darin",
-    "tags": []
-  },
-  {
-    "title": "Jingle Bell Rock",
-    "artist": "Xmas Bobby Helms",
     "tags": []
   },
   {
@@ -436,7 +424,7 @@
     "artist": "Bon Jovi",
     "tags": []
   },
-    {
+  {
     "title": "Daddy Cool",
     "artist": "Boney M",
     "tags": []
@@ -454,11 +442,6 @@
   {
     "title": "More Than a Feeling",
     "artist": "Boston",
-    "tags": []
-  },
-  {
-    "title": "Rockin' Around The Christmas Tree",
-    "artist": "Xmas Brenda Lee",
     "tags": []
   },
   {
@@ -592,6 +575,11 @@
     "tags": []
   },
   {
+    "title": "It's All Coming Back to Me Now",
+    "artist": "Céline Dion",
+    "tags": []
+  },
+  {
     "title": "Ain't Nobody",
     "artist": "Chaka Khan",
     "tags": []
@@ -624,11 +612,6 @@
   {
     "title": "Colour My World",
     "artist": "Chicago",
-    "tags": []
-  },
-  {
-    "title": "Madison Dance (Last Night)",
-    "artist": "The Mar Keys",
     "tags": []
   },
   {
@@ -687,17 +670,17 @@
     "tags": []
   },
   {
-    "title": "Yellow",
-    "artist": "Coldplay",
-    "tags": []
-  },
-  {
     "title": "God Put a Smile Upon Your Face",
     "artist": "Coldplay",
     "tags": []
   },
   {
     "title": "Viva La Vida",
+    "artist": "Coldplay",
+    "tags": []
+  },
+  {
+    "title": "Yellow",
     "artist": "Coldplay",
     "tags": []
   },
@@ -732,13 +715,13 @@
     "tags": []
   },
   {
-    "title": "Teach Your Children",
+    "title": "Our House",
     "artist": "Crosby, Stills, Nash And Young",
     "tags": []
   },
   {
-    "title": "Our House",
-    "artist": "Crosby, Stills, Nash and Young",
+    "title": "Teach Your Children",
+    "artist": "Crosby, Stills, Nash And Young",
     "tags": []
   },
   {
@@ -756,7 +739,7 @@
     "artist": "Culture Club",
     "tags": []
   },
-    {
+  {
     "title": "Girls Just Wanna Have Fun",
     "artist": "Cyndi Lauper",
     "tags": []
@@ -767,11 +750,6 @@
     "tags": []
   },
   {
-    "title": "It's All Coming Back to Me Now",
-    "artist": "Céline Dion",
-    "tags": []
-  },
-  {
     "title": "Get Lucky",
     "artist": "Daft Punk & Pharrell Williams",
     "tags": []
@@ -779,11 +757,6 @@
   {
     "title": "Wagon Wheel",
     "artist": "Darius Rucker",
-    "tags": []
-  },
-  {
-    "title": "Christmas (Baby Please Come Home)",
-    "artist": "Xmas Darlene Love",
     "tags": []
   },
   {
@@ -876,7 +849,7 @@
     "artist": "Dj Casper",
     "tags": []
   },
-    {
+  {
     "title": "Hey Baby",
     "artist": "DJ Otzi",
     "tags": []
@@ -911,7 +884,7 @@
     "artist": "Donna Summer",
     "tags": []
   },
-    {
+  {
     "title": "April Sun In Cuba",
     "artist": "Dragon",
     "tags": []
@@ -936,7 +909,7 @@
     "artist": "Eagles",
     "tags": []
   },
-    {
+  {
     "title": "Lyin' Eyes",
     "artist": "Eagles",
     "tags": []
@@ -972,13 +945,13 @@
     "tags": []
   },
   {
-    "title": "Shape Of You/No Scrubs Mashup",
-    "artist": "Ed Sheeran and TLC",
+    "title": "Thinking Out Loud",
+    "artist": "Ed Sheeran",
     "tags": []
   },
   {
-    "title": "Thinking Out Loud",
-    "artist": "Ed Sheeran",
+    "title": "Shape Of You/No Scrubs Mashup",
+    "artist": "Ed Sheeran and TLC",
     "tags": []
   },
   {
@@ -1012,18 +985,8 @@
     "tags": []
   },
   {
-    "title": "Step Into Christmas",
-    "artist": "Xmas Elton John",
-    "tags": []
-  },
-  {
     "title": "Your Song",
     "artist": "Elton John",
-    "tags": []
-  },
-  {
-    "title": "She",
-    "artist": "Elvis Presley",
     "tags": []
   },
   {
@@ -1036,7 +999,7 @@
     "artist": "Elvis Presley",
     "tags": []
   },
-    {
+  {
     "title": "Blue Suede Shoes",
     "artist": "Elvis Presley",
     "tags": []
@@ -1047,12 +1010,17 @@
     "tags": []
   },
   {
+    "title": "Hound Dog",
+    "artist": "Elvis Presley",
+    "tags": []
+  },
+  {
     "title": "Jailhouse Rock",
     "artist": "Elvis Presley",
     "tags": []
   },
-    {
-    "title": "Hound Dog",
+  {
+    "title": "She",
     "artist": "Elvis Presley",
     "tags": []
   },
@@ -1061,7 +1029,7 @@
     "artist": "Engelbert Humperdinck",
     "tags": []
   },
-    {
+  {
     "title": "A Little Respect",
     "artist": "Erasure",
     "tags": []
@@ -1186,7 +1154,7 @@
     "artist": "Fleetwood Mac",
     "tags": []
   },
-    {
+  {
     "title": "Tusk",
     "artist": "Fleetwood Mac",
     "tags": []
@@ -1196,7 +1164,7 @@
     "artist": "Fleetwood Mac",
     "tags": []
   },
-    {
+  {
     "title": "Learn To Fly",
     "artist": "Foo Fighters",
     "tags": []
@@ -1216,12 +1184,12 @@
     "artist": "Frank Sinatra",
     "tags": []
   },
-    {
+  {
     "title": "Come Fly With Me",
     "artist": "Frank Sinatra",
     "tags": []
   },
-    {
+  {
     "title": "Girl From Ipanema",
     "artist": "Frank Sinatra",
     "tags": []
@@ -1232,12 +1200,12 @@
     "tags": []
   },
   {
-    "title": "Let It Snow Let It Snow Let It Snow",
-    "artist": "Xmas Frank Sinatra",
+    "title": "My Way",
+    "artist": "Frank Sinatra",
     "tags": []
   },
-    {
-    "title": "My Way",
+  {
+    "title": "New York, New York",
     "artist": "Frank Sinatra",
     "tags": []
   },
@@ -1246,7 +1214,7 @@
     "artist": "Frank Sinatra",
     "tags": []
   },
-    {
+  {
     "title": "That's Life",
     "artist": "Frank Sinatra",
     "tags": []
@@ -1261,7 +1229,7 @@
     "artist": "Frank Sinatra",
     "tags": []
   },
-    {
+  {
     "title": "Under My Skin",
     "artist": "Frank Sinatra",
     "tags": []
@@ -1314,7 +1282,7 @@
     "artist": "Garth Brooks",
     "tags": []
   },
-    {
+  {
     "title": "Invisible Touch",
     "artist": "Genesis",
     "tags": []
@@ -1364,7 +1332,7 @@
     "artist": "George Michael",
     "tags": []
   },
-    {
+  {
     "title": "Ferry Cross The Mersey",
     "artist": "Gerry and The Pacemakers",
     "tags": []
@@ -1485,11 +1453,6 @@
     "tags": []
   },
   {
-    "title": "James Bond Theme",
-    "artist": "Monty Norman",
-    "tags": []
-  },
-    {
     "title": "I Got You (I Feel Good)",
     "artist": "James Brown",
     "tags": []
@@ -1763,7 +1726,7 @@
     "artist": "La Cage aux folles",
     "tags": []
   },
-    {
+  {
     "title": "Need You Now",
     "artist": "Lady Antebellum",
     "tags": []
@@ -1799,12 +1762,12 @@
     "tags": []
   },
   {
-    "title": "Hallelujah",
+    "title": "Dance Me to the End of Love",
     "artist": "Leonard Cohen",
     "tags": []
   },
   {
-    "title": "Dance Me to the End of Love",
+    "title": "Hallelujah",
     "artist": "Leonard Cohen",
     "tags": []
   },
@@ -1841,11 +1804,6 @@
   {
     "title": "Shout Out To My Ex",
     "artist": "Little Mix",
-    "tags": []
-  },
-  {
-    "title": "New York, New York",
-    "artist": "Frank Sinatra",
     "tags": []
   },
   {
@@ -2029,22 +1987,22 @@
     "tags": []
   },
   {
+    "title": "Feeling Good",
+    "artist": "Michael Bublé",
+    "tags": []
+  },
+  {
     "title": "Haven't Met You Yet",
     "artist": "Michael Bublé",
     "tags": []
   },
   {
-    "title": "Feeling Good",
-    "artist": "Michael Bublé",
-    "tags": []
-  },
-    {
-    "title": "Billie Jean",
+    "title": "Beat It",
     "artist": "Michael Jackson",
     "tags": []
   },
   {
-    "title": "Beat It",
+    "title": "Billie Jean",
     "artist": "Michael Jackson",
     "tags": []
   },
@@ -2078,9 +2036,14 @@
     "artist": "Mission Impossible",
     "tags": []
   },
-    {
+  {
     "title": "Lady (Hear Me Tonight)",
     "artist": "Modjo",
+    "tags": []
+  },
+  {
+    "title": "James Bond Theme",
+    "artist": "Monty Norman",
     "tags": []
   },
   {
@@ -2088,7 +2051,7 @@
     "artist": "Moulin Rouge!",
     "tags": []
   },
-    {
+  {
     "title": "I Will Wait",
     "artist": "Mumford And Sons",
     "tags": []
@@ -2103,7 +2066,7 @@
     "artist": "Mungo Jerry",
     "tags": []
   },
-    {
+  {
     "title": "Let There Be Love",
     "artist": "Nat King Cole",
     "tags": []
@@ -2164,13 +2127,13 @@
     "tags": []
   },
   {
-    "title": "Smells Like Teen Spirit",
-    "artist": "Nirvana",
-    "tags": []
-  },
-    {
     "title": "My Baby Just Cares For Me",
     "artist": "Nina Simone",
+    "tags": []
+  },
+  {
+    "title": "Smells Like Teen Spirit",
+    "artist": "Nirvana",
     "tags": []
   },
   {
@@ -2183,7 +2146,7 @@
     "artist": "Norah Jones",
     "tags": []
   },
-    {
+  {
     "title": "Sunrise",
     "artist": "Norah Jones",
     "tags": []
@@ -2208,7 +2171,7 @@
     "artist": "Oleta Adams",
     "tags": []
   },
-    {
+  {
     "title": "Man I Need",
     "artist": "Olivia Dean",
     "tags": []
@@ -2228,7 +2191,7 @@
     "artist": "Otis Redding",
     "tags": []
   },
-    {
+  {
     "title": "D.I.S.C.O.",
     "artist": "Ottawan",
     "tags": []
@@ -2263,7 +2226,7 @@
     "artist": "Paul Simon",
     "tags": []
   },
-    {
+  {
     "title": "Fever",
     "artist": "Peggy Lee",
     "tags": []
@@ -2273,7 +2236,7 @@
     "artist": "Pharrell Williams",
     "tags": []
   },
-    {
+  {
     "title": "Comfortably Numb",
     "artist": "Pink Floyd",
     "tags": []
@@ -2323,13 +2286,13 @@
     "artist": "Prince",
     "tags": []
   },
-   {
-    "title": "Kiss",
+  {
+    "title": "I Wanna Be Your Lover",
     "artist": "Prince",
     "tags": []
   },
   {
-    "title": "I Wanna Be Your Lover",
+    "title": "Kiss",
     "artist": "Prince",
     "tags": []
   },
@@ -2338,7 +2301,7 @@
     "artist": "Pulp",
     "tags": []
   },
-    {
+  {
     "title": "Another One Bites The Dust",
     "artist": "Queen",
     "tags": []
@@ -2379,18 +2342,18 @@
     "tags": []
   },
   {
-    "title": "Under Pressure",
-    "artist": "Queen & David Bowie",
-    "tags": []
-  },
-  {
     "title": "We Are The Champions",
     "artist": "Queen",
     "tags": []
   },
-    {
+  {
     "title": "We Will Rock You",
     "artist": "Queen",
+    "tags": []
+  },
+  {
+    "title": "Under Pressure",
+    "artist": "Queen & David Bowie",
     "tags": []
   },
   {
@@ -2413,19 +2376,19 @@
     "artist": "Ray Charles",
     "tags": []
   },
-    {
+  {
     "title": "Ghostbusters",
     "artist": "Ray Parker Jr",
     "tags": []
   },
   {
-    "title": "Cotton Eye Joe",
-    "artist": "Rednex",
-    "tags": []
-  },
-    {
     "title": "Come And Get Your Love",
     "artist": "Redbone",
+    "tags": []
+  },
+  {
+    "title": "Cotton Eye Joe",
+    "artist": "Rednex",
     "tags": []
   },
   {
@@ -2458,7 +2421,7 @@
     "artist": "Robbie Williams",
     "tags": []
   },
-    {
+  {
     "title": "Mr. Bojangles",
     "artist": "Robbie Williams",
     "tags": []
@@ -2528,7 +2491,7 @@
     "artist": "S Club 7",
     "tags": []
   },
-    {
+  {
     "title": "Espresso",
     "artist": "Sabrina Carpenter",
     "tags": []
@@ -2579,11 +2542,6 @@
     "tags": []
   },
   {
-    "title": "Merry Christmas Everyone",
-    "artist": "Xmas Shakin' Stevens",
-    "tags": []
-  },
-  {
     "title": "Hips Don't Lie",
     "artist": "Shakira",
     "tags": []
@@ -2626,11 +2584,6 @@
   {
     "title": "Kiss Me",
     "artist": "Sixpence None the Riche",
-    "tags": []
-  },
-  {
-    "title": "Merry Xmas Everybody",
-    "artist": "Xmas Slade",
     "tags": []
   },
   {
@@ -2713,7 +2666,7 @@
     "artist": "Steely Dan",
     "tags": []
   },
-    {
+  {
     "title": "Have a Nice Day",
     "artist": "Stereophonics",
     "tags": []
@@ -2724,12 +2677,12 @@
     "tags": []
   },
   {
-    "title": "Superstition",
+    "title": "Signed Sealed Delivered I'm Yours",
     "artist": "Stevie Wonder",
     "tags": []
   },
   {
-    "title": "Signed Sealed Delivered I'm Yours",
+    "title": "Superstition",
     "artist": "Stevie Wonder",
     "tags": []
   },
@@ -2744,12 +2697,12 @@
     "tags": []
   },
   {
-    "title": "Get It On",
+    "title": "20th Century Boy",
     "artist": "T. Rex",
     "tags": []
   },
   {
-    "title": "20th Century Boy",
+    "title": "Get It On",
     "artist": "T. Rex",
     "tags": []
   },
@@ -2801,7 +2754,7 @@
     "artist": "The Angels",
     "tags": []
   },
-    {
+  {
     "title": "Don't Let Me Be Misunderstood",
     "artist": "The Animals",
     "tags": []
@@ -2821,7 +2774,7 @@
     "artist": "The Beach Boys",
     "tags": []
   },
-    {
+  {
     "title": "Don't Worry Baby",
     "artist": "The Beach Boys",
     "tags": []
@@ -2886,12 +2839,12 @@
     "artist": "The Beatles",
     "tags": []
   },
-    {
+  {
     "title": "Hey Jude",
     "artist": "The Beatles",
     "tags": []
   },
-    {
+  {
     "title": "I Feel Fine",
     "artist": "The Beatles",
     "tags": []
@@ -2916,13 +2869,13 @@
     "artist": "The Beatles",
     "tags": []
   },
-    {
-    "title": "Love Me Do",
+  {
+    "title": "Let It Be",
     "artist": "The Beatles",
     "tags": []
   },
   {
-    "title": "Let It Be",
+    "title": "Love Me Do",
     "artist": "The Beatles",
     "tags": []
   },
@@ -2967,12 +2920,12 @@
     "tags": []
   },
   {
-    "title": "Yesterday",
+    "title": "Yellow Submarine",
     "artist": "The Beatles",
     "tags": []
   },
   {
-    "title": "Yellow Submarine",
+    "title": "Yesterday",
     "artist": "The Beatles",
     "tags": []
   },
@@ -3052,12 +3005,12 @@
     "tags": []
   },
   {
-    "title": "Take Me To The River",
+    "title": "Commitments Medley: Mustang Sally / In The Midnight Hour / Take Me To The River",
     "artist": "The Commitments",
     "tags": []
   },
   {
-    "title": "Commitments Medley: Mustang Sally / In The Midnight Hour / Take Me To The River",
+    "title": "Take Me To The River",
     "artist": "The Commitments",
     "tags": []
   },
@@ -3148,7 +3101,7 @@
     "artist": "The Foundations",
     "tags": []
   },
-    {
+  {
     "title": "Build Me Up Buttercup",
     "artist": "The Foundations",
     "tags": []
@@ -3184,6 +3137,11 @@
     "tags": []
   },
   {
+    "title": "Blame It On The Boogie",
+    "artist": "The Jackson 5",
+    "tags": []
+  },
+  {
     "title": "I Want You Back",
     "artist": "The Jackson 5",
     "tags": []
@@ -3191,16 +3149,6 @@
   {
     "title": "I'll Be There",
     "artist": "The Jackson 5",
-    "tags": []
-  },
-  {
-    "title": "Blame It On The Boogie",
-    "artist": "The Jackson 5",
-    "tags": []
-  },
-  {
-    "title": "Santa Claus Is Coming To Town",
-    "artist": "Xmas The Jackson 5",
     "tags": []
   },
   {
@@ -3240,6 +3188,11 @@
   },
   {
     "title": "Madison Dance (Last Night)",
+    "artist": "The Mar Keys",
+    "tags": []
+  },
+  {
+    "title": "Madison Dance (Last Night)",
     "artist": "The Mar-Keys",
     "tags": []
   },
@@ -3248,7 +3201,7 @@
     "artist": "The Marcels",
     "tags": []
   },
-    {
+  {
     "title": "Daydream Believer",
     "artist": "The Monkees",
     "tags": []
@@ -3268,13 +3221,13 @@
     "artist": "The Penguins",
     "tags": []
   },
-    {
-    "title": "Fairytale of New York",
+  {
+    "title": "Dirty Old Town",
     "artist": "The Pogues",
     "tags": []
   },
   {
-    "title": "Dirty Old Town",
+    "title": "Fairytale of New York",
     "artist": "The Pogues",
     "tags": []
   },
@@ -3308,7 +3261,7 @@
     "artist": "The Police",
     "tags": []
   },
-    {
+  {
     "title": "I'll Stand By You",
     "artist": "The Pretenders",
     "tags": []
@@ -3321,11 +3274,6 @@
   {
     "title": "Unchained Melody",
     "artist": "The Righteous Brothers",
-    "tags": []
-  },
-  {
-    "title": "Satisfaction",
-    "artist": "The Rolling Stones",
     "tags": []
   },
   {
@@ -3344,6 +3292,11 @@
     "tags": []
   },
   {
+    "title": "Satisfaction",
+    "artist": "The Rolling Stones",
+    "tags": []
+  },
+  {
     "title": "Start Me Up",
     "artist": "The Rolling Stones",
     "tags": []
@@ -3356,11 +3309,6 @@
   {
     "title": "Be My Baby",
     "artist": "The Ronettes",
-    "tags": []
-  },
-  {
-    "title": "Sleigh Ride",
-    "artist": "Xmas The Ronettes",
     "tags": []
   },
   {
@@ -3400,11 +3348,6 @@
     "tags": []
   },
   {
-    "title": "Wipe Out",
-    "artist": "The Surfaris",
-    "tags": []
-  },
-  {
     "title": "Baby Love",
     "artist": "The Supremes",
     "tags": []
@@ -3422,6 +3365,11 @@
   {
     "title": "You Keep Me Hangin' On",
     "artist": "The Supremes",
+    "tags": []
+  },
+  {
+    "title": "Wipe Out",
+    "artist": "The Surfaris",
     "tags": []
   },
   {
@@ -3478,13 +3426,13 @@
     ]
   },
   {
-    "title": "Blinding Lights",
-    "artist": "The Weeknd",
+    "title": "The Whole Of The Moon",
+    "artist": "The Waterboys",
     "tags": []
   },
   {
-    "title": "The Whole Of The Moon",
-    "artist": "The Waterboys",
+    "title": "Blinding Lights",
+    "artist": "The Weeknd",
     "tags": []
   },
   {
@@ -3507,7 +3455,7 @@
     "artist": "The Wizard Of Oz",
     "tags": []
   },
-    {
+  {
     "title": "For Your Love",
     "artist": "The Yardbirds",
     "tags": []
@@ -3523,12 +3471,12 @@
     "tags": []
   },
   {
-    "title": "River Deep Mountain High",
+    "title": "Proud Mary",
     "artist": "Tina Turner",
     "tags": []
   },
   {
-    "title": "Proud Mary",
+    "title": "River Deep Mountain High",
     "artist": "Tina Turner",
     "tags": []
   },
@@ -3588,12 +3536,12 @@
     "tags": []
   },
   {
-    "title": "Moondance",
+    "title": "Brown Eyed Girl",
     "artist": "Van Morrison",
     "tags": []
   },
   {
-    "title": "Brown Eyed Girl",
+    "title": "Moondance",
     "artist": "Van Morrison",
     "tags": []
   },
@@ -3675,6 +3623,58 @@
   {
     "title": "See You Again",
     "artist": "Wiz Khalifa",
+    "tags": []
+  },
+  {
+    "title": "It's The Most Wonderful Time Of The Year",
+    "artist": "Xmas Andy Williams",
+    "tags": [
+      "Christmas"
+    ]
+  },
+  {
+    "title": "Jingle Bell Rock",
+    "artist": "Xmas Bobby Helms",
+    "tags": []
+  },
+  {
+    "title": "Rockin' Around The Christmas Tree",
+    "artist": "Xmas Brenda Lee",
+    "tags": []
+  },
+  {
+    "title": "Christmas (Baby Please Come Home)",
+    "artist": "Xmas Darlene Love",
+    "tags": []
+  },
+  {
+    "title": "Step Into Christmas",
+    "artist": "Xmas Elton John",
+    "tags": []
+  },
+  {
+    "title": "Let It Snow Let It Snow Let It Snow",
+    "artist": "Xmas Frank Sinatra",
+    "tags": []
+  },
+  {
+    "title": "Merry Christmas Everyone",
+    "artist": "Xmas Shakin' Stevens",
+    "tags": []
+  },
+  {
+    "title": "Merry Xmas Everybody",
+    "artist": "Xmas Slade",
+    "tags": []
+  },
+  {
+    "title": "Santa Claus Is Coming To Town",
+    "artist": "Xmas The Jackson 5",
+    "tags": []
+  },
+  {
+    "title": "Sleigh Ride",
+    "artist": "Xmas The Ronettes",
     "tags": []
   },
   {

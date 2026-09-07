@@ -4,8 +4,11 @@ import RepertoireBrowser from '../components/RepertoireBrowser.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SocialFollow from '../components/SocialFollow.astro';
 import songs from '../data/songs.json';
-import artists from '../data/artists.json';
 import YouTube from '../components/YouTube.astro';
+
+// See RepertoireBrowser.astro for why this is derived rather than a
+// separate hand-maintained data file.
+const artistCount = new Set(songs.map((s) => s.artist)).size;
 ---
 
 <Layout
@@ -19,7 +22,7 @@ import YouTube from '../components/YouTube.astro';
       <p class="eyebrow">{songs.length}+ songs and counting</p>
       <h1>The Upbeats Duo &mdash; Repertoire.</h1>
       <p class="page-hero__sub">
-        Our repertoire is pretty huge, spanning {artists.length}+ artists
+        Our repertoire is pretty huge, spanning {artistCount}+ artists
         &mdash; that's what you get having played for as long as we have.
         Search by song title or artist below, or pick an artist from the list.
       </p>

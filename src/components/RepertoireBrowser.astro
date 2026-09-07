@@ -1,6 +1,7 @@
 ---
 import songs from '../data/songs.json';
-import artists from '../data/artists.json';
+
+const artists = [...new Set(songs.map((s) => s.artist))].sort((a, b) => a.localeCompare(b));
 ---
 
 <div class="repertoire-browser">

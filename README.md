@@ -39,7 +39,6 @@ src/
     RepertoireBrowser.astro   Search-by-song-or-artist widget
   data/
     songs.json                Every song: { title, artist, tags }
-    artists.json               Sorted unique artist list, used by the repertoire filter
   content/blog/*.md           Blog posts (Markdown + frontmatter)
   content.config.ts           Content collection schema (Astro's Content Layer API)
   pages/
@@ -53,6 +52,7 @@ src/
     open-graph/[...route].ts   Auto-generates branded social share images
     404.astro
 public/                        Static files served as-is (favicon, robots.txt)
+scripts/sort-songs.mjs         `npm run sort-songs` — re-alphabetises songs.json (see below)
 astro.config.mjs               Site URL, fonts, image domains, sitemap integration
 ```
 
@@ -64,8 +64,17 @@ Everything on `/repertoire/` and the homepage's scrolling ticker comes from
 1. Export your Notion song database again (`•••` menu → Export → CSV).
 2. Re-run a parse pass (or just hand-edit the JSON — it's a simple array of
    `{ "title": "...", "artist": "...", "tags": [...] }` objects).
-3. `artists.json` should stay in sync — it's just the sorted, de-duplicated
-   `artist` values from `songs.json`.
+3. Run `npm run sort-songs` to re-alphabetise the file by artist (then by
+   title within an artist) — do this any time you've added, removed or
+   reordered songs by hand, so the file stays easy to scan/diff.
+
+That's it — there's no separate artists file to keep in sync. The artist
+list and count on `/repertoire/` are derived from `songs.json` directly at
+build time (see `RepertoireBrowser.astro`), so they're always accurate.
+There used to be a hand-maintained `artists.json` for this, but it had
+drifted badly out of sync (missing dozens of artists, plus dozens of stale
+ones with no matching song) — exactly the failure mode a second,
+manually-updated file invites. It's been removed.
 
 The homepage marquee (`src/pages/index.astro`) picks a curated `featured`
 list of song titles out of `songs.json` — edit that array to change which
