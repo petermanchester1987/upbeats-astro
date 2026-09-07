@@ -1,4 +1,9 @@
 [
+    {
+    "title": "Dreadlock Holiday",
+    "artist": "10cc",
+    "tags": []
+  },
   {
     "title": "ABBA Medley",
     "artist": "Abba",
@@ -78,6 +83,11 @@
   {
     "title": "Let's Stay Together",
     "artist": "Al Green",
+    "tags": []
+  },
+    {
+    "title": "Eye In The Sky",
+    "artist": "Alan Parsons Project",
     "tags": []
   },
   {
@@ -368,6 +378,11 @@
   {
     "title": "Livin' On A Prayer",
     "artist": "Bon Jovi",
+    "tags": []
+  },
+    {
+    "title": "Daddy Cool",
+    "artist": "Boney M",
     "tags": []
   },
   {
@@ -1050,6 +1065,11 @@
     "artist": "Frank Sinatra",
     "tags": []
   },
+    {
+    "title": "Come Fly With Me",
+    "artist": "Frank Sinatra",
+    "tags": []
+  },
   {
     "title": "I Get a Kick Out of You",
     "artist": "Frank Sinatra",
@@ -1173,6 +1193,11 @@
     "artist": "George Michael",
     "tags": []
   },
+    {
+    "title": "Ferry Cross The Mersey",
+    "artist": "Gerry and The Pacemakers",
+    "tags": []
+  },
   {
     "title": "But Not for Me",
     "artist": "Gershwin",
@@ -1211,6 +1236,11 @@
   {
     "title": "I Will Survive",
     "artist": "Gloria Gaynor",
+    "tags": []
+  },
+    {
+    "title": "Crazy",
+    "artist": "Gnarls Barkley",
     "tags": []
   },
   {
@@ -1558,7 +1588,7 @@
     "tags": []
   },
   {
-    "title": "Whole Lotta Love",
+    "title": "Stairway To Heaven",
     "artist": "Led Zeppelin",
     "tags": []
   },
@@ -1943,7 +1973,7 @@
     "tags": []
   },
   {
-    "title": "https://www.karaoke-version.co.uk/custombackingtrack/nirvana/smells-like-teen-spirit.html",
+    "title": "Smells Like Teen Spirit",
     "artist": "Nirvana",
     "tags": []
   },
@@ -1997,6 +2027,11 @@
     "artist": "Otis Redding",
     "tags": []
   },
+    {
+    "title": "D.I.S.C.O.",
+    "artist": "Ottawan",
+    "tags": []
+  },
   {
     "title": "Hey Ya!",
     "artist": "OutKast",
@@ -2030,6 +2065,11 @@
   {
     "title": "Happy",
     "artist": "Pharrell Williams",
+    "tags": []
+  },
+    {
+    "title": "Comfortably Numb",
+    "artist": "Pink Floyd",
     "tags": []
   },
   {
@@ -2162,6 +2202,11 @@
     "artist": "Rednex",
     "tags": []
   },
+    {
+    "title": "Come And Get Your Love",
+    "artist": "Redbone",
+    "tags": []
+  },
   {
     "title": "I'll Cover You Reprise",
     "artist": "Rent",
@@ -2235,6 +2280,11 @@
   {
     "title": "Reach",
     "artist": "S Club 7",
+    "tags": []
+  },
+    {
+    "title": "Espresso",
+    "artist": "Sabrina Carpenter",
     "tags": []
   },
   {
@@ -2490,6 +2540,11 @@
     "artist": "The Angels",
     "tags": []
   },
+    {
+    "title": "Don't Let Me Be Misunderstood",
+    "artist": "The Animals",
+    "tags": []
+  },
   {
     "title": "Walk Like An Egyptian",
     "artist": "The Bangles",
@@ -2502,6 +2557,11 @@
   },
   {
     "title": "California Girls",
+    "artist": "The Beach Boys",
+    "tags": []
+  },
+    {
+    "title": "Don't Worry Baby",
     "artist": "The Beach Boys",
     "tags": []
   },
@@ -2877,14 +2937,14 @@
     "artist": "The Marcels",
     "tags": []
   },
-  {
-    "title": "I'm a Believer",
+    {
+    "title": "Daydream Believer",
     "artist": "The Monkees",
     "tags": []
   },
   {
-    "title": "You Get What You Give",
-    "artist": "The New Radicals",
+    "title": "I'm a Believer",
+    "artist": "The Monkees",
     "tags": []
   },
   {
@@ -2892,9 +2952,14 @@
     "artist": "The Penguins",
     "tags": []
   },
+    {
+    "title": "Fairytale of New York",
+    "artist": "The Pogues",
+    "tags": []
+  },
   {
-    "title": "The Pink Panther Theme",
-    "artist": "The Pink Panther",
+    "title": "Dirty Old Town",
+    "artist": "The Pogues",
     "tags": []
   },
   {
@@ -2903,12 +2968,12 @@
     "tags": []
   },
   {
-    "title": "Can't Stand Losing You",
+    "title": "Don't Stand So Close to Me",
     "artist": "The Police",
     "tags": []
   },
   {
-    "title": "Don't Stand So Close to Me",
+    "title": "Every Breath You Take",
     "artist": "The Police",
     "tags": []
   },
@@ -2933,11 +2998,6 @@
     "tags": []
   },
   {
-    "title": "I'll Be There for You",
-    "artist": "The Rembrandts (Friends)",
-    "tags": []
-  },
-  {
     "title": "Unchained Melody",
     "artist": "The Righteous Brothers",
     "tags": []
@@ -2948,7 +3008,7 @@
     "tags": []
   },
   {
-    "title": "Brown Sugar",
+    "title": "Satisfaction",
     "artist": "The Rolling Stones",
     "tags": []
   },
@@ -3013,11 +3073,6 @@
   {
     "title": "Keep On Running",
     "artist": "The Spencer Davis Group",
-    "tags": []
-  },
-  {
-    "title": "It's a Shame",
-    "artist": "The Spinners",
     "tags": []
   },
   {
