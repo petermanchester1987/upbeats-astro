@@ -5,6 +5,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SocialFollow from '../components/SocialFollow.astro';
 import songs from '../data/songs.json';
 import artists from '../data/artists.json';
+import YouTube from '../components/YouTube.astro';
 ---
 
 <Layout
@@ -28,6 +29,36 @@ import artists from '../data/artists.json';
   <section class="section-tight">
     <div class="wrap">
       <RepertoireBrowser />
+    </div>
+  </section>
+
+   <section class="section-tight">
+    <div class="wrap social-grid">
+        
+      <div>
+        <p class="eyebrow">Prefer Newer Stuff?</p>
+        <h2>Watch Our Modern Promo</h2>
+        <div class="watch-video">
+        <YouTube
+          id="n_s8J8ZN83o"
+          title="The Upbeats Duo - Party Band 2024 (Modern Promo)"
+          description="A promo video showing the energy The Upbeats Duo bring to live performances, including weddings."
+        />
+      </div>
+      </div>
+
+      <div>
+        <p class="eyebrow">Or Are You Old School?</p>
+        <h2>See our RETRO Promo</h2>
+        <div class="watch-video">
+              <YouTube
+          id="UxMg5ePKJSc"
+          start={0}
+          title="The Upbeats Duo - Party Duo Promo (Retro Party Classics)"
+          description="A promo video showing the energy The Upbeats Duo bring to private parties, playing retro party classics."
+        />
+      </div>
+      </div> 
     </div>
   </section>
 
