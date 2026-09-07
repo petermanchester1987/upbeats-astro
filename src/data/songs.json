@@ -346,6 +346,11 @@
     "tags": []
   },
   {
+    "title": "Beyond The Sea",
+    "artist": "Bobby Darin",
+    "tags": []
+  },
+  {
     "title": "Jingle Bell Rock",
     "artist": "Bobby Helms",
     "tags": []
@@ -773,6 +778,11 @@
   {
     "title": "9 to 5",
     "artist": "Dolly Parton",
+    "tags": []
+  },
+  {
+    "title": "Boys Of Summer",
+    "artist": "Don Henley",
     "tags": []
   },
   {
@@ -1807,6 +1817,11 @@
     "artist": "Michael Bublé",
     "tags": []
   },
+    {
+    "title": "Billie Jean",
+    "artist": "Michael Jackson",
+    "tags": []
+  },
   {
     "title": "Beat It",
     "artist": "Michael Jackson",
@@ -2823,7 +2838,7 @@
     "tags": []
   },
   {
-    "title": "Rockin' Robin",
+    "title": "Blame It On The Boogie",
     "artist": "The Jackson 5",
     "tags": []
   },
@@ -3067,6 +3082,11 @@
       "60's",
       "Guitar Instrumental"
     ]
+  },
+  {
+    "title": "Blinding Lights",
+    "artist": "The Weeknd",
+    "tags": []
   },
   {
     "title": "Can't Feel My Face",
