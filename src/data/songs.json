@@ -136,14 +136,6 @@
     ]
   },
   {
-    "title": "Honey I'm Good",
-    "artist": "Andy Grammer",
-    "tags": [
-      "10's",
-      "Dance"
-    ]
-  },
-  {
     "title": "Moon River",
     "artist": "Andy Williams",
     "tags": [
@@ -153,7 +145,7 @@
   },
   {
     "title": "It's The Most Wonderful Time Of The Year",
-    "artist": "Andy Williams",
+    "artist": "Xmas Andy Williams",
     "tags": [
       "Christmas"
     ]
@@ -426,7 +418,7 @@
   },
   {
     "title": "Jingle Bell Rock",
-    "artist": "Bobby Helms",
+    "artist": "Xmas Bobby Helms",
     "tags": []
   },
   {
@@ -466,7 +458,7 @@
   },
   {
     "title": "Rockin' Around The Christmas Tree",
-    "artist": "Brenda Lee",
+    "artist": "Xmas Brenda Lee",
     "tags": []
   },
   {
@@ -595,11 +587,6 @@
     "tags": []
   },
   {
-    "title": "Finally",
-    "artist": "CeCe Peniston",
-    "tags": []
-  },
-  {
     "title": "Forget You!",
     "artist": "Cee Lo Green",
     "tags": []
@@ -640,7 +627,7 @@
     "tags": []
   },
   {
-    "title": "Madison dance (Last Night)",
+    "title": "Madison Dance (Last Night)",
     "artist": "The Mar Keys",
     "tags": []
   },
@@ -796,7 +783,7 @@
   },
   {
     "title": "Christmas (Baby Please Come Home)",
-    "artist": "Darlene Love",
+    "artist": "Xmas Darlene Love",
     "tags": []
   },
   {
@@ -1026,7 +1013,7 @@
   },
   {
     "title": "Step Into Christmas",
-    "artist": "Elton John",
+    "artist": "Xmas Elton John",
     "tags": []
   },
   {
@@ -1246,7 +1233,7 @@
   },
   {
     "title": "Let It Snow Let It Snow Let It Snow",
-    "artist": "Frank Sinatra",
+    "artist": "Xmas Frank Sinatra",
     "tags": []
   },
     {
@@ -1843,11 +1830,6 @@
   },
   {
     "title": "Girl Crush",
-    "artist": "Little Big Town",
-    "tags": []
-  },
-  {
-    "title": "Little White Church",
     "artist": "Little Big Town",
     "tags": []
   },
@@ -2598,7 +2580,7 @@
   },
   {
     "title": "Merry Christmas Everyone",
-    "artist": "Shakin' Stevens",
+    "artist": "Xmas Shakin' Stevens",
     "tags": []
   },
   {
@@ -2648,7 +2630,7 @@
   },
   {
     "title": "Merry Xmas Everybody",
-    "artist": "Slade",
+    "artist": "Xmas Slade",
     "tags": []
   },
   {
@@ -2794,11 +2776,6 @@
   {
     "title": "Por Una Cabeza",
     "artist": "Tango",
-    "tags": []
-  },
-  {
-    "title": "Love Story",
-    "artist": "Taylor Swift",
     "tags": []
   },
   {
@@ -3223,7 +3200,7 @@
   },
   {
     "title": "Santa Claus Is Coming To Town",
-    "artist": "The Jackson 5",
+    "artist": "Xmas The Jackson 5",
     "tags": []
   },
   {
@@ -3383,7 +3360,7 @@
   },
   {
     "title": "Sleigh Ride",
-    "artist": "The Ronettes",
+    "artist": "Xmas The Ronettes",
     "tags": []
   },
   {
