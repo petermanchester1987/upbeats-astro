@@ -2,9 +2,9 @@
 title: "Booking a Summer Party Band: What to Know"
 description: "A quick guide to booking a live party band for your summer event — timing, setlists, and what to ask before you book."
 date: 2024-05-12
-image: "../../assets/images/the-upbeats-singing-handheld.jpg"
-imageAlt: "The Upbeats Duo singing into handheld microphones on stage"
-imagePosition: "center 20%"
+image: "../../assets/images/the-upbeats-garden-with-name.jpeg"
+imageAlt: "The Upbeats Duo Summer Party Band"
+imagePosition: "center"
 ---
 
 Summer is peak season for live music — weddings, garden parties, festivals and corporate away-days all compete for the same weekends, which means good bands get booked up fast.
