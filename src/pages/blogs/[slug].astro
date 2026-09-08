@@ -6,6 +6,26 @@ import { Image, getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import NewsletterSignup from '../../components/NewsletterSignup.astro';
 
+// getImage()'s crop `position` (Sharp's cover-fit gravity) only understands
+// a fixed set of keywords (top/bottom/center/etc.) — a different, more
+// limited vocabulary than the free-form CSS object-position percentages
+// (e.g. "center 20%") used for on-page display elsewhere in this file.
+// This is a lossy but reasonable mapping from one to the other, used only
+// for the share-image crop below.
+function toSharpGravity(cssPosition: string | undefined): string {
+  if (!cssPosition) return 'center';
+  const value = cssPosition.toLowerCase();
+  if (value.includes('top')) return 'top';
+  if (value.includes('bottom')) return 'bottom';
+  const percentMatch = value.match(/(\d+)%/);
+  if (percentMatch) {
+    const vertical = Number(percentMatch[1]);
+    if (vertical < 40) return 'top';
+    if (vertical > 60) return 'bottom';
+  }
+  return 'center';
+}
+
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map((post) => ({
@@ -34,8 +54,15 @@ const image = post.data.image as ImageMetadata | undefined;
 // plain URL string, so social sharing needs its own resized, jpg-format
 // render — getImage() is the non-component way to get that, since Layout's
 // `image` prop just wants a plain URL.
+//
+// height + fit: 'cover' force this specific render to the 1200x630 (1.91:1)
+// ratio Facebook/Twitter/LinkedIn expect for link previews — deliberately
+// NOT applied to the on-page hero or blog-card thumbnail above, which keep
+// each photo's natural aspect ratio and their own imagePosition crop. This
+// share-only crop reuses the same imagePosition so it focuses on the same
+// subject rather than defaulting to a dumb centre-crop.
 const shareImage = image
-  ? (await getImage({ src: image, width: 1200, format: 'jpg' })).src
+  ? (await getImage({ src: image, width: 1200, height: 630, fit: 'cover', position: toSharpGravity(imagePosition), format: 'jpg' })).src
   : `/open-graph/blog/${post.id}.png`;
 
 const blogPostingSchema = {
