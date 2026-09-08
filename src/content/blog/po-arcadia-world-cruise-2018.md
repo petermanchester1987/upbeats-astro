@@ -1,5 +1,5 @@
 ---
-title: "Around the World in 99 Nights: Our 2018 World Cruise on P&O's Arcadia"
+title: "Around the World in 99 Nights - We Did a world cruise!"
 description: "The Upbeats Duo look back at their 2018 world cruise aboard P&O's Arcadia, from Gardens by the Bay in Singapore to Petra in Jordan and Alcatraz in San Francisco."
 date: 2018-03-01
 image: "../../assets/images/po-arcadia-world-cruise-singapore.jpg"

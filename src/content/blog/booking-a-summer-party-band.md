@@ -1,5 +1,5 @@
 ---
-title: "Booking a Summer Party Band: What to Know"
+title: "How to Book a Summer Party Band"
 description: "A quick guide to booking a live party band for your summer event — timing, setlists, and what to ask before you book."
 date: 2024-05-12
 image: "../../assets/images/the-upbeats-garden-with-name.jpeg"

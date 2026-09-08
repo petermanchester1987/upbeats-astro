@@ -1,5 +1,5 @@
 ---
-title: "Three Months in French Polynesia: Life Aboard Wind Spirit in the South Pacific"
+title: "Three Months in Paradise (well, French Polynesia)"
 description: "The Upbeats Duo spent three months working aboard a Wind Spirit ship in French Polynesia, island-hopping, swimming with reef sharks, and singing with the locals."
 date: 2017-04-07
 image: "../../assets/images/french-polynesia-windstar.jpg"

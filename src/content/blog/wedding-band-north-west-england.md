@@ -1,5 +1,5 @@
 ---
-title: "Choosing a Wedding Band in North West England"
+title: "Choosing the best wedding Band in North West England"
 description: "What to look for when booking a wedding band in the North West of England, from repertoire to reliability."
 date: 2024-01-18
 image: "/src/assets/images/the-upbeats-duo-party-band-garden-party.jpeg"

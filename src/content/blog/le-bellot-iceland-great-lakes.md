@@ -1,5 +1,5 @@
 ---
-title: "Icebergs to Inland Seas: Iceland and the Great Lakes Aboard Le Bellot"
+title: "Icebergs in Iceland to the Inland Seas of the Great Lakes Aboard Le Bellot"
 description: "The Upbeats Duo recall their 2024 contract aboard Ponant's Le Bellot, starting with weeks around Iceland before heading into North America's Great Lakes."
 date: 2024-09-10
 image: "../../assets/images/le-bellot-great-lakes.jpg"

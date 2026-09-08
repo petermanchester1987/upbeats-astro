@@ -1,5 +1,5 @@
 ---
-title: "Party Band in Manchester & Liverpool: What Sets Us Apart"
+title: "Best Party Band in Manchester & Liverpool - The Upbeats Duo"
 description: "Why The Upbeats Duo is a top choice for party bands across Manchester, Liverpool and the North West."
 image: "../../assets/images/the-upbeats-duo-disco-night.jpg"
 date: 2024-03-04

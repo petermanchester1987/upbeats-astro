@@ -1,5 +1,5 @@
 ---
-title: "Four Trips to the North Pole: Singing at the Top of the World Aboard Le Commandant Charcot"
+title: "Four Trips to the Actual North Pole (For Real!)"
 description: "The Upbeats Duo recap an extraordinary summer working aboard Ponant's Le Commandant Charcot, reaching the North Pole four times between July and September 2025."
 date: 2025-09-25
 image: "../../assets/images/the-upbeats-commandant-charcot-north-pole.jpg"
