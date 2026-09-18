@@ -2,7 +2,16 @@ import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.theupbeatsduo.com',
+  // Must match the domain that actually serves the site without redirecting
+  // — www.theupbeatsduo.com 301s to this apex domain, so canonical tags,
+  // the sitemap and og:image URLs all need to point here, not at www. When
+  // they pointed at www, every canonical tag and every sitemap URL was
+  // sending Google straight into that redirect — a page fetched at
+  // theupbeatsduo.com/x claiming its own canonical URL was
+  // www.theupbeatsduo.com/x, which then 301s right back to
+  // theupbeatsduo.com/x. That self-defeating signal is a classic cause of
+  // inconsistent/partial indexing in Search Console.
+  site: 'https://theupbeatsduo.com',
   integrations: [sitemap()],
 
   // Allow-lists the old Gatsby site's image hosts so astro:assets can

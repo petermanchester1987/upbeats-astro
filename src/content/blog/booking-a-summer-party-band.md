@@ -11,7 +11,7 @@ Summer is peak season for live music — weddings, garden parties, festivals and
 
 ## Book early
 
-If you've got your eye on a date between May and September, the earlier you enquire the better. Popular Saturdays can be booked out six to twelve months in advance, especially for wedding season.
+If you've got your eye on a date between May and September, the earlier you enquire the better. Popular Saturdays can be booked out six to twelve months in advance, even a year in advance for wedding season.
 
 ## Think about your setlist
 
