@@ -9,7 +9,7 @@ imagePosition: "center 20%"
 
 Alongside our regular party sets, we've spent the last couple of years building something we're really proud of: a set of full **guest entertainer shows**, designed for the main theatres of the ships we work on, rather than the bars and pool decks.
 
-You can see the full list of what we're currently offering over at **[the-manchesters.com](https://www.the-manchesters.com)** — and it's something we're really wanting to push further this year, so expect to hear a lot more about it from us.
+You can see the full list of what we're currently offering over at **[the-manchesters.com](https://www.the-manchesters.com)** — and it's something we're really wanting to push further this year, so expect to hear a lot more about it from us. The shows are The Story of Fleetwood Mac and The Story of Queen and we're really proud of them!
 
 ## Why We Built These Shows
 
