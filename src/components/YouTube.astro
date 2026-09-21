@@ -16,15 +16,12 @@ interface Props {
   /** Optional — adds a schema.org VideoObject for this video so it's eligible for video rich results. */
   description?: string;
   /**
-   * Full ISO 8601 datetime WITH a timezone offset, e.g.
-   * "2024-06-01T14:30:00+01:00" — a bare date like "2024-06-01" gets
-   * flagged by Search Console as an invalid/missing-timezone datetime, even
-   * though it's a technically-valid partial ISO 8601 date on its own.
-   * Get the real value from the video's own metadata (view page source on
-   * the YouTube watch page and search for "uploadDate") and convert it to
-   * London time — GMT (+00:00) from late October to late March, BST
-   * (+01:00) the rest of the year. Recommended by Google for VideoObject
-   * but not required.
+   * Full ISO 8601 datetime WITH a timezone offset, e.g. "2024-06-01T14:30:00+01:00".
+   * Normally leave this unset — it's fetched automatically from the video's
+   * own YouTube page at build time (see fetchUploadDate below) and
+   * converted to London time. Only pass this explicitly to override that
+   * (e.g. if the auto-fetch ever breaks for a specific video, or you know
+   * a more accurate value than YouTube's own metadata).
    */
   uploadDate?: string;
   /** Start playback at N seconds. */
@@ -32,7 +29,57 @@ interface Props {
   class?: string;
 }
 
-const { id, title, description, uploadDate, start, class: className } = Astro.props;
+const { id, title, description, uploadDate: explicitUploadDate, start, class: className } = Astro.props;
+
+// Module-level (not per-request) cache, so a video reused across several
+// pages — as these all are — is only fetched once per build/dev-server
+// process rather than once per usage.
+const uploadDateCache = new Map<string, string | undefined>();
+
+// Converts a YouTube-supplied timestamp (arbitrary offset — typically
+// Pacific, since that's where YouTube's servers are) to its correct
+// London-local equivalent, choosing GMT or BST automatically for that
+// specific date via the real IANA tz database rather than a hardcoded
+// offset.
+function toLondonISOString(isoDate: string): string {
+  const date = new Date(isoDate);
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hourCycle: 'h23',
+    timeZoneName: 'shortOffset',
+  }).formatToParts(date);
+  const get = (type: string) => parts.find((p) => p.type === type)?.value ?? '';
+  const offsetHours = Number(get('timeZoneName').match(/GMT([+-]\d+)?/)?.[1] ?? 0);
+  const offset = offsetHours === 0 ? '+00:00' : `${offsetHours > 0 ? '+' : '-'}${String(Math.abs(offsetHours)).padStart(2, '0')}:00`;
+  return `${get('year')}-${get('month')}-${get('day')}T${get('hour')}:${get('minute')}:${get('second')}${offset}`;
+}
+
+// Scrapes the real upload date from the video's own YouTube watch page —
+// there's no key-free official API for this, so this is inherently a bit
+// fragile (YouTube could change that page's structure), which is why every
+// failure mode below falls back to just omitting uploadDate from the
+// schema (exactly today's behaviour when it isn't set) rather than ever
+// failing the build.
+async function fetchUploadDate(videoId: string): Promise<string | undefined> {
+  if (uploadDateCache.has(videoId)) return uploadDateCache.get(videoId);
+  let result: string | undefined;
+  try {
+    const res = await fetch(`https://www.youtube.com/watch?v=${videoId}`, { signal: AbortSignal.timeout(5000) });
+    if (!res.ok) throw new Error(`YouTube returned ${res.status}`);
+    const html = await res.text();
+    const raw = html.match(/"uploadDate":"([^"]+)"/)?.[1];
+    if (!raw) throw new Error('uploadDate not found in page');
+    result = toLondonISOString(raw);
+  } catch (err) {
+    console.warn(`[YouTube.astro] Couldn't auto-fetch uploadDate for video "${videoId}" — omitting it from this video's schema. (${err instanceof Error ? err.message : err})`);
+  }
+  uploadDateCache.set(videoId, result);
+  return result;
+}
+
+const uploadDate = explicitUploadDate ?? (await fetchUploadDate(id));
 
 const thumbnail = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 const embedSrc = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1${start ? `&start=${start}` : ''}`;
