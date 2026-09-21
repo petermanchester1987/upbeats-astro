@@ -15,7 +15,17 @@ interface Props {
   title: string;
   /** Optional — adds a schema.org VideoObject for this video so it's eligible for video rich results. */
   description?: string;
-  /** ISO 8601 date, e.g. "2024-06-01". Recommended by Google for VideoObject but not required. */
+  /**
+   * Full ISO 8601 datetime WITH a timezone offset, e.g.
+   * "2024-06-01T14:30:00+01:00" — a bare date like "2024-06-01" gets
+   * flagged by Search Console as an invalid/missing-timezone datetime, even
+   * though it's a technically-valid partial ISO 8601 date on its own.
+   * Get the real value from the video's own metadata (view page source on
+   * the YouTube watch page and search for "uploadDate") and convert it to
+   * London time — GMT (+00:00) from late October to late March, BST
+   * (+01:00) the rest of the year. Recommended by Google for VideoObject
+   * but not required.
+   */
   uploadDate?: string;
   /** Start playback at N seconds. */
   start?: number;
