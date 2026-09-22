@@ -1,0 +1,148 @@
+---
+// Shows where the band is right now (or the next upcoming date if nothing's
+// on today) plus a short list of what's coming up, all derived purely from
+// src/data/tour.json — see README → "Where We Are page" for the schema.
+// No live ship-tracking API: entries are dated by hand, and this just picks
+// whichever one today's date falls into. That keeps it working forever with
+// zero API keys, rate limits or third-party outages to worry about.
+import tourData from '../data/tour.json';
+import { getTourStatus, entryTitle, entryLocation, formatDateRange, type TourEntry } from '../lib/tour';
+import WorldMap from './WorldMap.astro';
+
+interface Props {
+  /** 'full' shows current + an upcoming list; 'compact' (e.g. a homepage teaser) shows just the current/next entry. */
+  variant?: 'full' | 'compact';
+  upcomingLimit?: number;
+}
+
+const { variant = 'full', upcomingLimit = 4 } = Astro.props;
+
+const entries = tourData as TourEntry[];
+const { current, upcoming } = getTourStatus(entries);
+const headline = current ?? upcoming[0];
+const isCurrent = headline === current;
+const restUpcoming = (isCurrent ? upcoming : upcoming.slice(1)).slice(0, upcomingLimit);
+
+// Simple stroke-based line icons (matching YouTube.astro / SocialFollow.astro's
+// hand-drawn SVG style) rather than emoji — one per theme, plus the mic used
+// for every land-based gig regardless of theme.
+const ICONS = {
+  sun: '<circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>',
+  sail: '<path d="M6 19h13M12 19V4l6 9-6 2.2M8 19V9l-3.5 8.5"/>',
+  snowflake: '<path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9M9 4l3 3 3-3M9 20l3-3 3 3M4.9 9.6l1 3.9-3.9 1M21.1 9.6l-1 3.9 3.9 1M4.9 14.4l1-3.9-3.9-1M21.1 14.4l-1-3.9 3.9-1"/>',
+  mic: '<rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/>',
+} as const;
+
+const themeIconKey: Record<NonNullable<TourEntry['theme']>, keyof typeof ICONS> = {
+  tropical: 'sun',
+  mediterranean: 'sail',
+  northern: 'snowflake',
+  uk: 'mic',
+};
+
+function iconFor(entry: TourEntry): keyof typeof ICONS {
+  return entry.type === 'gig' ? 'mic' : themeIconKey[entry.theme ?? 'tropical'];
+}
+---
+
+{headline ? (
+  <div class={`tour-status tour-status--${variant}`}>
+    <div class={`tour-status__card tour-status__card--${headline.theme ?? 'tropical'}`}>
+      <span class="tour-status__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[iconFor(headline)]} />
+      </span>
+      <p class="tour-status__eyebrow">{isCurrent ? "Right now" : "Coming up"}</p>
+      <h3 class="tour-status__title">{entryTitle(headline)}</h3>
+      <p class="tour-status__location">{entryLocation(headline)}</p>
+      {headline.type === 'cruise' && headline.route && <p class="tour-status__route">{headline.route}</p>}
+      <p class="tour-status__dates">{formatDateRange(headline.from, headline.to)}</p>
+      {headline.note && <p class="tour-status__note">{headline.note}</p>}
+
+      {variant === 'full' && isCurrent && headline.type === 'cruise' && headline.waypoints && headline.waypoints.length >= 2 && (
+        <div class="tour-status__map">
+          <WorldMap waypoints={headline.waypoints} />
+        </div>
+      )}
+    </div>
+
+    {variant === 'full' && restUpcoming.length > 0 && (
+      <div class="tour-status__upcoming">
+        <p class="tour-status__upcoming-heading">Also coming up</p>
+        <ul>
+          {restUpcoming.map((entry) => (
+            <li>
+              <span class="tour-status__upcoming-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--lavender)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" set:html={ICONS[iconFor(entry)]} />
+              </span>
+              <span class="tour-status__upcoming-body">
+                <strong>{entryTitle(entry)}</strong>
+                <span>{entryLocation(entry)} &middot; {formatDateRange(entry.from, entry.to)}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+) : (
+  <p class="tour-status__empty">No dates announced yet — check back soon, or see our <a href="/contact/">contact page</a> to enquire about booking us.</p>
+)}
+
+<style>
+  .tour-status { display: flex; flex-direction: column; gap: 2rem; }
+
+  .tour-status__card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .tour-status__card--tropical { background: linear-gradient(160deg, #3a2a4d 0%, var(--panel) 70%); border-color: var(--gold-dim); }
+  .tour-status__card--mediterranean { background: linear-gradient(160deg, #1c3a4d 0%, var(--panel) 70%); border-color: #5fa8c9; }
+  .tour-status__card--northern { background: linear-gradient(160deg, #1f2d45 0%, var(--panel) 70%); border-color: var(--lavender); }
+  .tour-status__card--uk { background: linear-gradient(160deg, #4d1c3a 0%, var(--panel) 70%); border-color: var(--pink); }
+
+  .tour-status__icon { display: flex; justify-content: center; margin-bottom: 0.75rem; }
+  .tour-status__eyebrow {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  .tour-status__title { margin-bottom: 0.2em; }
+  .tour-status__location { color: var(--cream); font-size: 1.1rem; margin-bottom: 0.3em; }
+  .tour-status__route { color: var(--lavender); font-size: 0.9rem; margin-bottom: 0.3em; }
+  .tour-status__dates { color: var(--lavender); font-size: 0.9rem; margin-bottom: 0; }
+  .tour-status__note { margin: 0.75rem 0 0; color: var(--gold); font-size: 0.9rem; }
+  .tour-status__map { margin-top: 1.75rem; max-width: 480px; margin-inline: auto; }
+
+  .tour-status__upcoming-heading {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--lavender);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  .tour-status__upcoming ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+  .tour-status__upcoming li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.85em 1.1em;
+  }
+  .tour-status__upcoming-icon { flex-shrink: 0; display: flex; align-items: center; }
+  .tour-status__upcoming-body { display: flex; flex-direction: column; gap: 0.2em; }
+  .tour-status__upcoming-body strong { font-size: 0.95rem; }
+  .tour-status__upcoming-body span { color: var(--lavender); font-size: 0.85rem; }
+
+  .tour-status__empty { color: var(--lavender); }
+  .tour-status__empty a { color: var(--gold); }
+</style>

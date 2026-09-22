@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TourStatus from '../components/TourStatus.astro';
+---
+
+<Layout
+  title="Where We Are | The Upbeats Music Duo"
+  description="Find out which cruise ship The Upbeats Duo are currently sailing on, and see our upcoming ships and public gigs."
+  image="/open-graph/where-we-are.png"
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Where We Are', href: '/where-we-are/' }]} />
+      <p class="eyebrow">Follow along</p>
+      <h1>Where We Are.</h1>
+      <p class="page-hero__sub">
+        We spend a lot of the year at sea — here's whatever ship we're currently
+        aboard, plus anywhere we're headed next, including any public land-based
+        gigs.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap wrap--narrow">
+      <TourStatus variant="full" upcomingLimit={12} />
+    </div>
+  </section>
+
+  <section class="cta section-tight">
+    <div class="wrap cta__inner">
+      <div>
+        <h2>Booking a private event?</h2>
+        <p>Whatever ship we're on, we're also available to book for weddings, parties and corporate events when we're back on dry land.</p>
+      </div>
+      <a class="btn btn-solid" href="/contact/">Get in touch</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { padding-top: 4rem; padding-bottom: 2rem; }
+  .page-hero__sub { color: var(--lavender); max-width: 55ch; font-size: 1.1rem; }
+  .wrap--narrow { max-width: 640px; }
+  .cta__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+  }
+</style>

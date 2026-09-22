@@ -42,6 +42,10 @@ const pages = {
     title: 'Repertoire',
     description: 'Search 600+ songs spanning the 1950s to today.',
   },
+  'where-we-are': {
+    title: 'Where We Are',
+    description: 'Find out which ship we’re currently sailing on, and what’s coming up next.',
+  },
   blog: {
     title: 'Blog',
     description: 'Tips, stories and news from The Upbeats Duo.',

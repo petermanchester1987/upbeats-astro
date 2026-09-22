@@ -1,0 +1,151 @@
+[
+  {
+    "type": "cruise",
+    "ship": "Cunard Queen Anne",
+    "region": "Mediterranean & Greek Islands",
+    "route": "Southampton → Mediterranean & Greek Islands → Southampton",
+    "theme": "mediterranean",
+    "from": "2026-09-20",
+    "to": "2026-10-09",
+    "waypoints": [
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-09-20" },
+      { "name": "Cadiz", "lat": 36.5, "lng": -6.3, "date": "2026-09-23" },
+      { "name": "Santorini", "lat": 36.4, "lng": 25.4, "date": "2026-09-27" },
+      { "name": "Mykonos", "lat": 37.45, "lng": 25.33, "date": "2026-09-28" },
+      { "name": "Piraeus (Athens)", "lat": 37.94, "lng": 23.65, "date": "2026-09-29" },
+      { "name": "Heraklion, Crete", "lat": 35.34, "lng": 25.13, "date": "2026-09-30" },
+      { "name": "Katakolon", "lat": 37.65, "lng": 21.32, "date": "2026-10-02" },
+      { "name": "Cagliari, Sardinia", "lat": 39.22, "lng": 9.12, "date": "2026-10-04" },
+      { "name": "Gibraltar", "lat": 36.14, "lng": -5.35, "date": "2026-10-06" },
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-10-09" }
+    ]
+  },
+  {
+    "type": "cruise",
+    "ship": "Cunard Queen Anne",
+    "region": "Short Break to the Netherlands & Belgium",
+    "route": "Southampton → Rotterdam → Zeebrugge (Bruges) → Southampton",
+    "theme": "northern",
+    "from": "2026-10-09",
+    "to": "2026-10-13",
+    "waypoints": [
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-10-09" },
+      { "name": "Rotterdam", "lat": 51.92, "lng": 4.48, "date": "2026-10-11" },
+      { "name": "Zeebrugge (Bruges)", "lat": 51.33, "lng": 3.2, "date": "2026-10-12" },
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-10-13" }
+    ]
+  },
+  {
+    "type": "cruise",
+    "ship": "Cunard Queen Anne",
+    "region": "Norwegian Fjords",
+    "route": "Southampton → Ålesund → Tromsø → Narvik → Stavanger → Southampton",
+    "theme": "northern",
+    "from": "2026-10-13",
+    "to": "2026-10-25",
+    "waypoints": [
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-10-13" },
+      { "name": "Ålesund", "lat": 62.47, "lng": 6.15, "date": "2026-10-16" },
+      { "name": "Tromsø", "lat": 69.65, "lng": 18.96, "date": "2026-10-18" },
+      { "name": "Narvik", "lat": 68.44, "lng": 17.43, "date": "2026-10-20" },
+      { "name": "Stavanger", "lat": 58.97, "lng": 5.73, "date": "2026-10-23" },
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-10-25" }
+    ]
+  },
+  {
+    "type": "cruise",
+    "ship": "Cunard Queen Anne",
+    "region": "Northern Spain & France",
+    "route": "Southampton → Getxo (Bilbao) → Santander → Gijón → Cherbourg → Southampton",
+    "theme": "northern",
+    "from": "2026-10-25",
+    "to": "2026-11-01",
+    "waypoints": [
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-10-25" },
+      { "name": "Getxo (Bilbao)", "lat": 43.35, "lng": -3.02, "date": "2026-10-27" },
+      { "name": "Santander", "lat": 43.46, "lng": -3.81, "date": "2026-10-28" },
+      { "name": "Gijón", "lat": 43.53, "lng": -5.66, "date": "2026-10-29" },
+      { "name": "Cherbourg", "lat": 49.64, "lng": -1.62, "date": "2026-10-31" },
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-11-01" }
+    ]
+  },
+  {
+    "type": "cruise",
+    "ship": "Cunard Queen Anne",
+    "region": "Atlantic Islands: Azores, Madeira & Iberia",
+    "route": "Southampton → Ponta Delgada → Funchal → Lisbon → Vigo → Southampton",
+    "theme": "tropical",
+    "from": "2026-11-01",
+    "to": "2026-11-13",
+    "waypoints": [
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-11-01" },
+      { "name": "Ponta Delgada, Azores", "lat": 37.74, "lng": -25.67, "date": "2026-11-05" },
+      { "name": "Funchal, Madeira", "lat": 32.65, "lng": -16.91, "date": "2026-11-08" },
+      { "name": "Lisbon", "lat": 38.72, "lng": -9.14, "date": "2026-11-10" },
+      { "name": "Vigo", "lat": 42.24, "lng": -8.72, "date": "2026-11-11" },
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-11-13" }
+    ]
+  },
+  {
+    "type": "cruise",
+    "ship": "Cunard Queen Anne",
+    "region": "Norwegian Fjords",
+    "route": "Southampton → Ålesund → Tromsø → Narvik → Stavanger → Southampton",
+    "theme": "northern",
+    "from": "2026-11-13",
+    "to": "2026-11-25",
+    "waypoints": [
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-11-13" },
+      { "name": "Ålesund", "lat": 62.47, "lng": 6.15, "date": "2026-11-16" },
+      { "name": "Tromsø", "lat": 69.65, "lng": 18.96, "date": "2026-11-18" },
+      { "name": "Narvik", "lat": 68.44, "lng": 17.43, "date": "2026-11-20" },
+      { "name": "Stavanger", "lat": 58.97, "lng": 5.73, "date": "2026-11-23" },
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-11-25" }
+    ]
+  },
+  {
+    "type": "cruise",
+    "ship": "Cunard Queen Victoria",
+    "region": "World Cruise: Americas, Pacific, Australia, Asia & Africa",
+    "route": "Southampton → New York → Panama Canal → Los Angeles → Hawaii → Fiji → Sydney → Hong Kong → Singapore → South Africa → Southampton",
+    "theme": "tropical",
+    "from": "2027-01-10",
+    "to": "2027-04-30",
+    "note": "Our biggest voyage yet — 109 nights, 4 continents, back in time for summer!",
+    "waypoints": [
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2027-01-10" },
+      { "name": "New York", "lat": 40.71, "lng": -74.0, "date": "2027-01-18" },
+      { "name": "Oranjestad, Aruba", "lat": 12.52, "lng": -70.03, "date": "2027-01-24" },
+      { "name": "Panama Canal Transit", "lat": 9.08, "lng": -79.68, "date": "2027-01-26" },
+      { "name": "Acajutla, El Salvador", "lat": 13.59, "lng": -89.83, "date": "2027-01-29" },
+      { "name": "Puerto Vallarta, Mexico", "lat": 20.65, "lng": -105.22, "date": "2027-02-01" },
+      { "name": "Los Angeles", "lat": 33.74, "lng": -118.27, "date": "2027-02-04" },
+      { "name": "Hilo, Hawaii", "lat": 19.73, "lng": -155.09, "date": "2027-02-10" },
+      { "name": "Honolulu, Hawaii", "lat": 21.31, "lng": -157.86, "date": "2027-02-11" },
+      { "name": "Lautoka, Fiji", "lat": -17.62, "lng": 177.45, "date": "2027-02-19" },
+      { "name": "Noumea, New Caledonia", "lat": -22.28, "lng": 166.46, "date": "2027-02-21" },
+      { "name": "Sydney", "lat": -33.87, "lng": 151.21, "date": "2027-02-24" },
+      { "name": "Airlie Beach, Australia", "lat": -20.27, "lng": 148.72, "date": "2027-02-28" },
+      { "name": "Townsville, Australia", "lat": -19.26, "lng": 146.82, "date": "2027-03-01" },
+      { "name": "Cairns, Australia", "lat": -16.92, "lng": 145.77, "date": "2027-03-02" },
+      { "name": "Bitung, Indonesia", "lat": 1.44, "lng": 125.19, "date": "2027-03-08" },
+      { "name": "Puerto Princesa, Philippines", "lat": 9.74, "lng": 118.73, "date": "2027-03-10" },
+      { "name": "Manila, Philippines", "lat": 14.6, "lng": 120.98, "date": "2027-03-12" },
+      { "name": "Hong Kong", "lat": 22.28, "lng": 114.16, "date": "2027-03-14" },
+      { "name": "Chan May, Vietnam", "lat": 16.21, "lng": 108.05, "date": "2027-03-17" },
+      { "name": "Nha Trang, Vietnam", "lat": 12.24, "lng": 109.19, "date": "2027-03-19" },
+      { "name": "Phu My, Vietnam", "lat": 10.58, "lng": 107.05, "date": "2027-03-21" },
+      { "name": "Singapore", "lat": 1.29, "lng": 103.85, "date": "2027-03-22" },
+      { "name": "Port Louis, Mauritius", "lat": -20.16, "lng": 57.5, "date": "2027-03-30" },
+      { "name": "Le Port, Réunion", "lat": -20.94, "lng": 55.29, "date": "2027-03-31" },
+      { "name": "Durban, South Africa", "lat": -29.86, "lng": 31.03, "date": "2027-04-04" },
+      { "name": "Gqeberha, South Africa", "lat": -33.96, "lng": 25.6, "date": "2027-04-07" },
+      { "name": "Cape Town", "lat": -33.92, "lng": 18.42, "date": "2027-04-09" },
+      { "name": "Walvis Bay, Namibia", "lat": -22.96, "lng": 14.51, "date": "2027-04-13" },
+      { "name": "Dakar, Senegal", "lat": 14.72, "lng": -17.47, "date": "2027-04-21" },
+      { "name": "Tenerife", "lat": 28.29, "lng": -16.63, "date": "2027-04-24" },
+      { "name": "Funchal, Madeira", "lat": 32.65, "lng": -16.91, "date": "2027-04-25" },
+      { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2027-04-30" }
+    ]
+  }
+]

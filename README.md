@@ -37,8 +37,13 @@ src/
     ReviewsCarousel.astro     Scrollable, auto-advancing reviews (see below)
     StatsCounter.astro        Count-up stats grid (see below)
     RepertoireBrowser.astro   Search-by-song-or-artist widget
+    TourStatus.astro          Current/upcoming ship or gig, from tour.json (see below)
+    WorldMap.astro             Stylised map + daily-interpolated position, shown by TourStatus.astro
+  lib/
+    tour.ts                    Types + date logic behind TourStatus.astro
   data/
     songs.json                Every song: { title, artist, tags }
+    tour.json                  Ship/gig itinerary entries (see "Where We Are page" below)
   content/blog/*.md           Blog posts (Markdown + frontmatter)
   content.config.ts           Content collection schema (Astro's Content Layer API)
   pages/
@@ -46,6 +51,7 @@ src/
     products/                  Booking pages — kept at /products/… to match
                                 the old site's URLs (see "URLs" below)
     repertoire.astro           Searchable song list
+    where-we-are.astro         Current ship/gig + upcoming itinerary
     blogs/                     Blog index + [slug].astro (dynamic post pages)
     contact.astro              Contact form (Netlify Forms — see below)
     contact/thank-you.astro    Form submission redirect target
@@ -79,6 +85,69 @@ manually-updated file invites. It's been removed.
 The homepage marquee (`src/pages/index.astro`) picks a curated `featured`
 list of song titles out of `songs.json` — edit that array to change which
 songs scroll across the gold ticker.
+
+### Where We Are page
+
+`/where-we-are/` shows whichever ship (or land gig) you're currently on,
+plus what's coming up — entirely from `src/data/tour.json`, which you edit
+by hand (same pattern as `songs.json`). **There's no live ship-tracking
+API** — this was deliberately scoped that way after weighing it against
+paid/rate-limited AIS tracking services, so it keeps working forever with
+no API keys, no rate limits, and nothing that can go offline or start
+charging you. The page just shows whichever entry today's date falls into.
+
+Each entry:
+
+```json
+{
+  "type": "cruise",
+  "ship": "Cunard Queen Anne",
+  "region": "Caribbean & Southern Islands",
+  "route": "Southampton → Barbados → Southampton",
+  "theme": "tropical",
+  "from": "2026-09-01",
+  "to": "2026-10-15",
+  "waypoints": [
+    { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-09-01" },
+    { "name": "Tenerife", "lat": 28.5, "lng": -16.3, "date": "2026-09-08" },
+    { "name": "Barbados", "lat": 13.1, "lng": -59.6, "date": "2026-09-18" },
+    { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-10-15" }
+  ]
+}
+```
+
+- `type`: `"cruise"` or `"gig"` (for land-based public shows).
+- `ship` / `region` / `route`: cruise only. `region` is the headline location shown; `route` is optional.
+- `venue` / `city`: gig only, e.g. `"venue": "The Deaf Institute", "city": "Manchester, UK"`.
+- `theme`: `"tropical"` (default), `"mediterranean"`, `"northern"` or `"uk"` — just picks the card's colour/icon, purely cosmetic.
+- `from` / `to`: ISO dates (`YYYY-MM-DD`), inclusive. Use the same date for a one-day gig.
+- `note`: optional, e.g. `"Public gig — all welcome!"`.
+- `waypoints`: cruise only, optional — the ports on the published itinerary
+  with their lat/lng and the date the ship is there. When present (2 or
+  more), a stylised map appears on the current entry with a marker
+  interpolated between whichever two ports today's date falls between —
+  so it moves a little further along the route each day without ever
+  calling an external API. Get lat/lng for a port from any map by
+  right-clicking the location and copying the coordinates. Waypoints
+  don't need to be evenly spaced — a long gap between two dates (a sea
+  crossing) just interpolates smoothly over more days than a short hop
+  between nearby ports.
+
+Add as many entries as you like, in any order — the page sorts and picks
+the current/upcoming ones automatically. An empty `tour.json` (`[]`) shows
+a graceful "no dates announced yet" message rather than breaking.
+
+**On the map itself** (`WorldMap.astro`): the continents are hand-drawn,
+deliberately simplified shapes, not a real geographic dataset or map tile
+service — that was a deliberate choice to match the site's own design
+language rather than embedding a generic map widget. What IS accurate is
+the marker's position on that stylised backdrop, calculated with a
+standard map projection from the interpolated coordinates.
+
+The `TourStatus.astro` component behind this also takes a `variant="compact"`
+prop (shows just the current/next entry, no upcoming list or map) if you
+ever want a smaller teaser of it elsewhere, e.g. the homepage — say the
+word and it can be added there too.
 
 ### Blog header images
 

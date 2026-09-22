@@ -1,0 +1,122 @@
+---
+// A hand-drawn, stylised world silhouette — not a real geographic dataset
+// or map tile service, by design (see README → "Where We Are page"). The
+// continents are soft decorative blobs, not accurate coastlines; what IS
+// accurate is the marker's position, plotted with a standard equirectangular
+// projection from the interpolated lat/lng in getShipPosition().
+import { getShipPosition, type Waypoint } from '../lib/tour';
+
+interface Props {
+  waypoints: Waypoint[];
+  today?: Date;
+}
+
+const { waypoints, today = new Date() } = Astro.props;
+const position = getShipPosition(waypoints, today);
+const sorted = [...waypoints].sort((a, b) => a.date.localeCompare(b.date));
+
+// Equirectangular projection onto a 1000x500 viewBox: lng -180..180 -> x 0..1000, lat 90..-90 -> y 0..500.
+function project(lat: number, lng: number) {
+  return { x: ((lng + 180) / 360) * 1000, y: ((90 - lat) / 180) * 500 };
+}
+
+const routePoints = sorted.map((w) => project(w.lat, w.lng));
+const routePath = routePoints.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+const marker = position ? project(position.lat, position.lng) : undefined;
+---
+
+{position && (
+  <div class="world-map">
+    <svg viewBox="0 0 1000 500" role="img" aria-label={`Map showing the ship ${position.label}`}>
+      <rect x="0" y="0" width="1000" height="500" class="world-map__ocean" />
+
+      <!-- Decorative, deliberately simplified continent silhouettes — not
+           real coastline data, but shaped to read as their actual
+           continent (Africa's taper, South America's point, etc.)
+           rather than generic blobs. -->
+      <g class="world-map__land">
+        <!-- North America -->
+        <path d="M62,68 C110,48 165,40 205,44 C255,50 290,68 302,90 C312,112 322,140 330,160 C326,178 320,192 316,198 C296,194 272,190 258,192 C244,198 236,206 232,214 C210,208 186,196 170,186 C150,172 128,155 108,132 C88,112 70,90 62,68 Z" />
+        <!-- Central America / Mexico (connects North to South America) -->
+        <path d="M232,214 C242,208 254,204 262,208 C258,222 246,238 232,252 C222,246 218,234 222,224 C224,220 228,216 232,214 Z" />
+        <!-- South America -->
+        <path d="M292,232 C324,222 362,228 388,248 C398,262 392,280 384,296 C390,312 386,326 376,336 C368,358 356,382 340,404 C330,412 320,408 316,396 C308,376 300,356 296,338 C284,326 276,310 278,294 C270,278 268,260 276,246 C280,240 286,236 292,232 Z" />
+        <!-- Mainland Europe — pulled east of the British Isles below, with a
+             visible gap between them for the Channel/North Sea, since every
+             voyage returns to Southampton and that's worth being able to
+             pick out at a glance rather than it disappearing into one big
+             Europe blob. -->
+        <path d="M535,55 C545,48 558,46 568,52 C574,60 576,72 578,82 C596,80 614,78 628,86 C640,94 644,106 634,116 C622,128 602,132 584,138 C564,144 544,142 528,134 C518,126 514,114 518,102 C514,90 518,76 526,64 C528,61 531,58 535,55 Z" />
+        <!-- British Isles -->
+        <path d="M500,110 C503,105 504,102 503,100 C500,94 496,90 494,88 C491,86 489,86 488,86 C485,88 482,90 482,92 C480,96 479,100 480,104 C481,108 482,111 484,112 C489,113 495,112 500,110 Z" />
+        <path d="M478,92 C481,90 483,93 482,97 C481,101 479,104 476,103 C474,100 475,95 478,92 Z" />
+        <!-- Africa -->
+        <path d="M478,150 C520,144 566,146 600,158 C618,166 632,180 640,196 C646,210 640,224 630,234 C634,250 626,264 614,272 C608,296 598,320 582,340 C572,354 560,366 548,376 C540,360 534,342 526,326 C512,320 502,308 500,292 C488,284 480,272 480,258 C468,246 462,230 466,214 C460,198 462,180 470,164 C472,159 475,154 478,150 Z" />
+        <!-- Asia (main landmass) -->
+        <path d="M600,84 C660,56 740,42 820,46 C880,50 930,62 958,88 C970,102 966,120 952,132 C956,146 946,158 930,164 C908,176 880,178 856,172 C838,180 818,182 800,176 C784,186 764,186 748,178 C724,190 698,186 680,172 C658,170 638,162 624,148 C608,138 598,124 596,108 C594,100 596,90 600,84 Z" />
+        <!-- India subcontinent -->
+        <path d="M700,168 C716,172 730,182 734,198 C736,212 728,226 716,232 C704,222 696,206 696,190 C696,182 697,175 700,168 Z" />
+        <!-- Southeast Asia peninsula -->
+        <path d="M806,178 C818,182 826,194 824,208 C822,218 814,224 806,220 C800,206 800,190 806,178 Z" />
+        <!-- Arabian peninsula -->
+        <path d="M636,156 C650,160 660,172 658,188 C656,200 646,208 636,204 C628,190 628,172 636,156 Z" />
+        <!-- Japan -->
+        <path d="M890,118 C898,114 906,120 906,132 C906,146 902,158 894,164 C886,160 882,148 884,136 C885,128 887,122 890,118 Z" />
+        <!-- Australia -->
+        <path d="M822,300 C852,286 890,284 914,298 C928,308 930,326 920,340 C912,356 892,368 868,370 C844,372 822,362 812,344 C806,328 810,312 822,300 Z" />
+      </g>
+
+      <!-- Full route, travelled portion highlighted. -->
+      <path d={routePath} class="world-map__route" />
+      {sorted.map((w) => {
+        const p = project(w.lat, w.lng);
+        return <circle cx={p.x} cy={p.y} r="4" class="world-map__port" />;
+      })}
+
+      {marker && (
+        <g class="world-map__marker" transform={`translate(${marker.x} ${marker.y})`}>
+          <circle r="10" class="world-map__marker-pulse" />
+          <circle r="5" class="world-map__marker-dot" />
+        </g>
+      )}
+    </svg>
+    <p class="world-map__label">{position.label}</p>
+  </div>
+)}
+
+<style>
+  .world-map { display: flex; flex-direction: column; gap: 0.75rem; }
+  .world-map svg { width: 100%; height: auto; border-radius: 10px; overflow: hidden; }
+  .world-map__ocean { fill: var(--ink); }
+  .world-map__land { fill: var(--panel-light); opacity: 0.9; }
+  .world-map__route { fill: none; stroke: var(--gold-dim); stroke-width: 2; stroke-dasharray: 6 6; }
+  .world-map__port { fill: var(--lavender); }
+  .world-map__marker-dot { fill: var(--gold); }
+  .world-map__marker-pulse {
+    fill: var(--gold);
+    opacity: 0.35;
+    animation: world-map-pulse 2.4s ease-out infinite;
+    /* transform-box is what makes transform-origin: center resolve to this
+       circle's own center — without it, SVG elements default to measuring
+       transform-origin against the whole SVG's viewBox, so the scale()
+       animation below expands outward from the map's top-left corner
+       instead of from the marker itself, dragging it diagonally across
+       the map as it grows each cycle. */
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .world-map__marker-pulse { animation: none; }
+  }
+  @keyframes world-map-pulse {
+    0% { transform: scale(0.6); opacity: 0.45; }
+    100% { transform: scale(2.2); opacity: 0; }
+  }
+  .world-map__label {
+    text-align: center;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+</style>
