@@ -11,9 +11,9 @@
       { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-09-20" },
       { "name": "Cadiz", "lat": 36.5, "lng": -6.3, "date": "2026-09-23" },
       { "name": "Santorini", "lat": 36.4, "lng": 25.4, "date": "2026-09-27" },
-      { "name": "Mykonos", "lat": 37.45, "lng": 25.33, "date": "2026-09-28" },
+      { "name": "~~Mykonos~~ (Cancelled due to strong winds)", "lat": 37.45, "lng": 25.33, "date": "2026-09-28" },
       { "name": "Piraeus (Athens)", "lat": 37.94, "lng": 23.65, "date": "2026-09-29" },
-      { "name": "Heraklion, Crete", "lat": 35.34, "lng": 25.13, "date": "2026-09-30" },
+      { "name": "~~Heraklion~~ (Instead Souda Bay, Crete)", "lat": 35.34, "lng": 25.13, "date": "2026-09-30" },
       { "name": "Katakolon", "lat": 37.65, "lng": 21.32, "date": "2026-10-02" },
       { "name": "Cagliari, Sardinia", "lat": 39.22, "lng": 9.12, "date": "2026-10-04" },
       { "name": "Gibraltar", "lat": 36.14, "lng": -5.35, "date": "2026-10-06" },
@@ -46,8 +46,8 @@
     "waypoints": [
       { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-10-13" },
       { "name": "Ålesund", "lat": 62.47, "lng": 6.15, "date": "2026-10-16" },
-      { "name": "Tromsø", "lat": 69.65, "lng": 18.96, "date": "2026-10-18" },
-      { "name": "Narvik", "lat": 68.44, "lng": 17.43, "date": "2026-10-20" },
+      { "name": "~~Tromsø~~", "lat": 69.65, "lng": 18.96, "date": "2026-10-18" },
+      { "name": "Narvik", "lat": 68.44, "lng": 17.43, "date": "2026-10-19" },
       { "name": "Stavanger", "lat": 58.97, "lng": 5.73, "date": "2026-10-23" },
       { "name": "Southampton", "lat": 50.9, "lng": -1.4, "date": "2026-10-25" }
     ]
